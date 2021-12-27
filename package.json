@@ -20,7 +20,9 @@
     "@angular/router": "~13.1.0",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "@ngxs/logger-plugin": "^3.7.2-dev.master-78fbf9a",
+    "@ngxs/store": "^3.7.2-dev.master-78fbf9a"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.1.1",

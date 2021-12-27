@@ -1,1 +1,23 @@
-<p>search works!</p>
+<div class="container">
+  <input type="text" placeholder="Search ...">
+
+  <div class="categories">
+    <button (click)="showCategories=!showCategories"> Choose Category </button>
+  </div>
+
+  <div *ngIf="showCategories" class="categoriesForm">
+    <h1> Choose Category </h1>
+    <form>
+       <div> Breakfast <input type="radio" name="category" value="breakfast"> </div>
+       <div> Dinner <input type="radio" name="category" value="dinner">  </div>
+       <div> Lunch <input type="radio" name="category" value="lunch"> </div>
+       <div> Salads <input type="radio" name="category" value="salads"> </div>
+       <div> Dessert <input type="radio" name="category" value="dessert">  </div>
+       <div> Appetiser <input type="radio" name="category" value="appetiser">  </div>
+       <div> Vegan <input type="radio" name="category" value="vegan"> </div>
+       <div> Meat <input type="radio" name="category" value="meat"> </div>
+       <div> Maincourse <input type="radio" name="category" value="maincourse"> </div>
+    </form>
+    <button (click)="showCategories=false"> OK </button>
+  </div>
+</div>

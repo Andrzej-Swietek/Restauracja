@@ -1,6 +1,7 @@
 :root {
   --primary: #f2edd7ff;
-  --secondary: #755139ff;
+  /*--secondary: #755139ff;*/
+  --secondary: #313131;
   --bg: #eaeaea;
   --fontfamily: Arial, sans-serif;
   --shadow1: rgba(149, 157, 165, 0.2) 0px 8px 24px;

@@ -1,1 +1,3 @@
-g<p>items works!</p>
+<ng-container *ngFor="let item of products$ | async">
+  <app-item [item]="item"></app-item>
+</ng-container>

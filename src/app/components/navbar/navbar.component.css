@@ -2,9 +2,8 @@
   width: 100vw;
   height: 10vh;
   color: var(--secondary);
-  border: 1px var(--secondary) solid;
   background: var(--primary);
-  box-shadow: var(--shadow4);
+  box-shadow: var(--shadow1);
 }
 nav{
   width: 100%;
@@ -15,11 +14,12 @@ nav{
   justify-content: center;
   align-items: center;
   padding: 0 1rem;
+  box-shadow: var(--shadow1);
 }
 .logo{
   grid-column: span 4;
   height: 90%;
-  background: #000;
+  display: flex ; align-items: center; justify-content: center; flex-flow: row wrap;
 }
 ul{
   grid-column: span 6;
@@ -33,17 +33,32 @@ li{
   padding: 1rem;
   text-decoration: none;
   list-style: none;
+  display: flex ; align-items: center; justify-content: center; flex-flow: row wrap;
   color: var(--secondary);
-  border-bottom: .5rem solid var(--primary);
+  border-bottom: .25rem solid var(--primary);
   transition: .5s;
 }
-li:hover{
-  border-bottom: .5rem solid var(--secondary);
-}
 a{
+  position: relative;
   height: 100%;
   width: 100%;
   text-decoration: none;
+  display: flex ; align-items: center; justify-content: center; flex-flow: row wrap;
   color: inherit;
 }
-
+a:after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: .25rem;
+  bottom: -1rem;
+  left: 0;
+  background-color: var(--secondary);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+a:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

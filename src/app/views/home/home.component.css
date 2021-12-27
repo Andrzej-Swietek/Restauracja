@@ -1,0 +1,11 @@
+:host{
+  width: 100%;
+  height: 80vh;
+  background: var(--bg);
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 1rem;
+  justify-content: space-around;
+  align-items: center;
+}

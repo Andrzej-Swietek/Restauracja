@@ -19,6 +19,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './views/home/home.component';
 import { ProductComponent } from './views/product/product.component';
 import { NotFoundComponent } from './views/not-found/not-found.component';
+import { SearchComponent } from './components/search/search.component';
+import { ItemsComponent } from './components/items/items.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { NotFoundComponent } from './views/not-found/not-found.component';
     FooterComponent,
     HomeComponent,
     ProductComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SearchComponent,
+    ItemsComponent
   ],
   imports: [
     NgxsModule.forRoot([ProductState], {}),

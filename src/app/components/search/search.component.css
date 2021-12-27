@@ -1,0 +1,6 @@
+:host{
+  grid-column: span 3;
+  height: 90%;
+  box-shadow: var(--shadow1);
+  padding: 1rem;
+}

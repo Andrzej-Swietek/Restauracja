@@ -1,2 +1,2 @@
-<app-search></app-search>
-<app-items></app-items>
+<app-search (filter)="handleFilter($event)" ></app-search>
+<app-items [filter]="filter"></app-items>

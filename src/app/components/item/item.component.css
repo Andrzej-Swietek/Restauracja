@@ -118,6 +118,12 @@ img {
   background: var(--primary) ;
   color: var(--minor-text-color);
 }
+.buttons > button:disabled:hover,
+.buttons > button:disabled {
+  background: var(--danger);
+  color: var(--primary);
+}
+
 
 .col {
   margin: 1rem;

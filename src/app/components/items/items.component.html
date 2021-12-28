@@ -1,3 +1,3 @@
 <ng-container *ngFor="let item of products$ | async">
-  <app-item [item]="item"></app-item>
+  <app-item *ngIf="(((item.name.includes(filter.name) && (categoryFilter(filter.category, item.category) || filter.category.length==0) && (filter.cuisine.includes(item.cuisine) || filter.cuisine.length==0gt)) && filter.price>=item.price) || filter.category.length==0)" [item]="item"></app-item>
 </ng-container>

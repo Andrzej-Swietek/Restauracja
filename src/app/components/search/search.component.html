@@ -1,23 +1,51 @@
 <div class="container">
-  <input type="text" placeholder="Search ...">
-
+  <input type="text" placeholder="Search ..." (input)="onNameChange($event)" >
+  <input type="range" min="0" max="500" value="150" (input)="onPriceChange($event)" />
+  <label> price: 0 - {{filteredPrice}} $</label>
   <div class="categories">
     <button (click)="showCategories=!showCategories"> Choose Category </button>
+  </div>
+  <div class="selectedCategories">
+    <ng-container *ngFor="let category of filteredCategories">
+      <div> {{ category }} </div>
+    </ng-container>
+  </div>
+  <div class="cuisines">
+    <button (click)="showCuisines=!showCuisines"> Choose Cuisine </button>
+  </div>
+  <div class="selectedCuisines">
+    <ng-container *ngFor="let cuisine of filteredCuisines">
+      <div> {{ cuisine }} </div>
+    </ng-container>
   </div>
 
   <div *ngIf="showCategories" class="categoriesForm">
     <h1> Choose Category </h1>
     <form>
-       <div> Breakfast <input type="radio" name="category" value="breakfast"> </div>
-       <div> Dinner <input type="radio" name="category" value="dinner">  </div>
-       <div> Lunch <input type="radio" name="category" value="lunch"> </div>
-       <div> Salads <input type="radio" name="category" value="salads"> </div>
-       <div> Dessert <input type="radio" name="category" value="dessert">  </div>
-       <div> Appetiser <input type="radio" name="category" value="appetiser">  </div>
-       <div> Vegan <input type="radio" name="category" value="vegan"> </div>
-       <div> Meat <input type="radio" name="category" value="meat"> </div>
-       <div> Maincourse <input type="radio" name="category" value="maincourse"> </div>
+       <div> Breakfast <input type="checkbox" name="category" value="breakfast" (input)="onCategoryChange('breakfast')"> </div>
+       <div> Dinner <input type="checkbox" name="category" value="dinner" (input)="onCategoryChange('dinner')">  </div>
+       <div> Lunch <input type="checkbox" name="category" value="lunch" (input)="onCategoryChange('lunch')"> </div>
+       <div> Salads <input type="checkbox" name="category" value="salads" (input)="onCategoryChange('salads')"> </div>
+       <div> Dessert <input type="checkbox" name="category" value="dessert" (input)="onCategoryChange('dessert')">  </div>
+       <div> Appetiser <input type="checkbox" name="category" value="appetiser" (input)="onCategoryChange('appetiser')">  </div>
+       <div> Vegan <input type="checkbox" name="category" value="vegan" (input)="onCategoryChange('vegan')"> </div>
+       <div> Meat <input type="checkbox" name="category" value="meat" (input)="onCategoryChange('meat')"> </div>
+       <div> Maincourse <input type="checkbox" name="category" value="maincourse" (input)="onCategoryChange('maincourse')"> </div>
     </form>
     <button (click)="showCategories=false"> OK </button>
+  </div>
+  <div *ngIf="showCuisines" class="cuisinesForm">
+    <h1> Choose Cuisine </h1>
+    <form>
+      <div> french <input type="checkbox" name="cuisine" value="french" (input)="onCuisineChange('french')"> </div>
+      <div> polish <input type="checkbox" name="cuisine" value="polish" (input)="onCuisineChange('polish')">  </div>
+      <div> italian <input type="checkbox" name="cuisine" value="italian" (input)="onCuisineChange('italian')"> </div>
+      <div> american <input type="checkbox" name="cuisine" value="american" (input)="onCuisineChange('american')"> </div>
+      <div> mexican <input type="checkbox" name="cuisine" value="mexican" (input)="onCuisineChange('mexican')">  </div>
+      <div> indian <input type="checkbox" name="cuisine" value="indian" (input)="onCuisineChange('indian')">  </div>
+      <div> oriental <input type="checkbox" name="cuisine" value="oriental" (input)="onCuisineChange('oriental')"> </div>
+      <div> international <input type="checkbox" name="cuisine" value="international" (input)="onCuisineChange('international')"> </div>
+    </form>
+    <button (click)="showCuisines=false"> OK </button>
   </div>
 </div>

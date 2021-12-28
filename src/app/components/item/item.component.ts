@@ -7,6 +7,7 @@ import {ProductState} from "../../store/state/product.state";
 // FOR ADDING/Removing
 import {AddProduct, EditProduct, RemoveProduct} from "../../store/actions/product.action";
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import {CategoryType, CuisineType} from "../../shared/types";
 
 @Component({
   selector: 'app-item',
@@ -23,9 +24,16 @@ export class ItemComponent implements OnInit {
   ngOnInit(): void {
   }
   plus(){
+    if(this.item.quantity!=0)
     this.store.dispatch(new EditProduct({
       ...this.item,
       quantity: this.item.quantity - 1
+    }))
+  }
+  minus(){
+    this.store.dispatch(new EditProduct({
+      ...this.item,
+      quantity: this.item.quantity + 1
     }))
   }
 

@@ -6,7 +6,7 @@ export interface ProductModel {
   price: number,
   quantity: number,
   gallery: string[],
-  category: CategoryType,
+  category: CategoryType[],
   cuisine: CuisineType,
   description: string,
   ingredients: string[],

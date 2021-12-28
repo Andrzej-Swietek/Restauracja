@@ -19,7 +19,7 @@ export class ProductStateModel {
         price: 100,
         quantity: 20,
         gallery: ["https://www.mojegotowanie.pl/media/cache/default_view/uploads/media/recipe/0002/11/pizza-pepperoni.jpeg","#"],
-        category: "dessert",
+        category: ["dessert"],
         cuisine: "french",
         description: "description",
         ingredients: ["v", "w", "u"],
@@ -33,7 +33,7 @@ export class ProductStateModel {
         price: 100,
         quantity: 20,
         gallery: ["https://www.mojegotowanie.pl/media/cache/default_view/uploads/media/recipe/0002/11/pizza-pepperoni.jpeg","#"],
-        category: "dessert",
+        category: ["dessert"],
         cuisine: "french",
         description: "description",
         ingredients: ["v", "w", "u"],
@@ -47,7 +47,7 @@ export class ProductStateModel {
         price: 100,
         quantity: 20,
         gallery: ["https://www.mojegotowanie.pl/media/cache/default_view/uploads/media/recipe/0002/11/pizza-pepperoni.jpeg","#"],
-        category: "dessert",
+        category: ["dessert"],
         cuisine: "french",
         description: "description",
         ingredients: ["v", "w", "u"],
@@ -61,7 +61,7 @@ export class ProductStateModel {
         price: 100,
         quantity: 20,
         gallery: ["https://www.mojegotowanie.pl/media/cache/default_view/uploads/media/recipe/0002/11/pizza-pepperoni.jpeg","#"],
-        category: "dessert",
+        category: ["dessert"],
         cuisine: "french",
         description: "description",
         ingredients: ["v", "w", "u"],
@@ -89,6 +89,13 @@ export class ProductState {
   remove({getState, patchState}: StateContext<ProductStateModel>, { payload }: RemoveProduct){
     patchState({
       products: getState().products.filter( (product: ProductModel) => product.id !== payload.id )
+    })
+  }
+
+  @Action(EditProduct)
+  edit({getState, patchState}: StateContext<ProductStateModel>, { payload }: EditProduct){
+    patchState({
+      products: getState().products.map( (product: ProductModel)=>  product.id != payload.id? product : payload )
     })
   }
 

@@ -22,6 +22,7 @@ import { NotFoundComponent } from './views/not-found/not-found.component';
 import { SearchComponent } from './components/search/search.component';
 import { ItemsComponent } from './components/items/items.component';
 import { ItemComponent } from './components/item/item.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { ItemComponent } from './components/item/item.component';
     HttpClientModule,
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

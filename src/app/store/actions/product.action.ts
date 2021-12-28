@@ -7,7 +7,9 @@ export class AddProduct {
 
 export class RemoveProduct {
   static readonly type = "[PRODUCT] Remove";
-  constructor(public payload: ProductModel) {}
+  constructor(public payload: ProductModel) {
+
+  }
 }
 
 export class EditProduct {

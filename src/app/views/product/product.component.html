@@ -1,1 +1,38 @@
+<div class="card">
+ <div class="gallery">
+   <div class="arrowLeft" (click)="changeImage('left')"> <fa-icon [icon]="faChevronLeft"></fa-icon> </div>
+   <div class="arrowRight" (click)="changeImage('right')"> <fa-icon [icon]="faChevronRight"></fa-icon> </div>
+   <img [src]="product$.gallery[ imageId ]" alt="image">
+ </div>
 
+  <div class="column">
+    <h1 class="title"> {{ product$.name }}  </h1>
+    <div class="tags">
+      <div class="tag-item" *ngFor="let i of product$.category"> #{{ i }} </div>
+    </div>
+    <div class="data">
+      <div class="element"> <span>Price</span>: {{ product$.price }} </div>
+      <div class="element"> <span>Quantity</span>: {{ product$.price }} </div>
+    </div>
+  </div>
+  <div class="column subgrid">
+    <div class="ingredients">
+      <h2>Ingredients</h2>
+      <div class="ingredient" *ngFor="let i of product$.ingredients"> {{ i }} </div>
+    </div>
+    <div class="grades">
+      <h2> Grades </h2>
+      <div class="stars">
+        <ng-container *ngFor="let i of [].constructor(product$.grade)">
+          <fa-icon class="filled" [icon]="faStar"></fa-icon>
+        </ng-container>
+        <ng-container *ngFor="let i of [].constructor(5-product$.grade)">
+          <fa-icon class="empty" [icon]="faStar"></fa-icon>
+        </ng-container>
+        <span>{{ product$.grade }}</span>
+      </div>
+      <span> <fa-icon [icon]="faUser"></fa-icon> {{ product$.numberOfGrades }} </span>
+      <button> Feedback </button>
+    </div>
+  </div>
+</div>

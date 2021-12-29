@@ -8,8 +8,14 @@
   </ng-container>
 </div>
 
+<style>
+  .my-pagination /deep/ .ngx-pagination .current {
+    background: var(--secondary);
+    border-radius: 45px;
+  }
+</style>
 <div class="paginate">
-  <pagination-controls (pageChange)="currentPg = $event" ></pagination-controls>
+  <pagination-controls class="my-pagination" (pageChange)="currentPg = $event" ></pagination-controls>
 </div>
 
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import {Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
 import {CategoryType, CuisineType} from "../../shared/types";
 
 @Component({
@@ -25,6 +25,7 @@ export class SearchComponent implements OnInit {
       this.filteredCategories = this.filteredCategories.filter(c=>c!=category)
     else
       this.filteredCategories.push(category);
+
     this.emitFilter();
   }
   onCuisineChange(cuisine:CuisineType):void{
@@ -32,10 +33,12 @@ export class SearchComponent implements OnInit {
       this.filteredCuisines = this.filteredCuisines.filter(c=>c!=cuisine)
     else
       this.filteredCuisines.push(cuisine);
+
     this.emitFilter();
   }
   onPriceChange(e){
     this.filteredPrice = e.target.value;
+
     this.emitFilter();
   }
   onNameChange(e){
@@ -44,6 +47,7 @@ export class SearchComponent implements OnInit {
   }
   emitFilter(){
     let f= { name: this.filteredName, category: this.filteredCategories , cuisine: this.filteredCuisines, price: parseInt(this.filteredPrice) }
+    console.log(f);
     this.filter.emit(f);
   }
 

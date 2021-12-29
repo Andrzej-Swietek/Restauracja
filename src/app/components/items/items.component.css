@@ -1,8 +1,36 @@
 :host{
   grid-column: span 9;
-  height: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.grid{
+  height: 100%;
   padding: 1rem;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 1rem;
 }
+.paginate{
+  height: 10%;
+  display: inline-block;
+}
+pagination-controls a{
+  background: var(--secondary);
+}
+.pagination a {
+  color: red;
+  background: var(--secondary);
+}
+pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.pagination-c a:hover:not(.active) {background-color: #ddd;}
+
+

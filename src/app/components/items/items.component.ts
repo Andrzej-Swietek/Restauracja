@@ -1,9 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, EventEmitter, Output} from '@angular/core';
 import {Select, Store} from "@ngxs/store";
 import {ProductState} from "../../store/state/product.state";
 import {Observable} from "rxjs";
 import {ProductModel} from "../../store/models/product.model";
-import {CategoryType} from "../../shared/types";
+import {CategoryType, CuisineType} from "../../shared/types";
 
 @Component({
   selector: 'app-items',
@@ -13,7 +13,9 @@ import {CategoryType} from "../../shared/types";
 export class ItemsComponent implements OnInit {
 
   @Input() filter = {name:'', category:[], cuisine: [], price:150};
+
   @Select(ProductState.getProducts) products$: Observable<ProductModel[]>
+  currentPg: string | number;
   constructor(private store: Store) { }
 
   ngOnInit(): void {

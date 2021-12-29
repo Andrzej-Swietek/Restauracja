@@ -1,13 +1,13 @@
 <div class="item-container">
   <div class="del" (click)="deleteHandle()"><fa-icon [icon]="faTrash"></fa-icon></div>
   <img [src]="item.gallery[0]" alt="image">
-  <div class="name"> <h1>{{ item.name | uppercase }}</h1> <h3>{{item.cuisine | uppercase}}</h3> </div>
+  <div class="name"> <h2>{{ item.name | uppercase }}</h2> <h3>{{item.cuisine | uppercase}}</h3> </div>
   <div class="price"><h1> ${{ item.price }} </h1></div>
   <div class="buttons">
     <button (click)="plus()" [disabled]="item.quantity<=0"> +  </button>
     <button (click)="minus()"> -  </button>
     <div class="col">
-      <div> Ordered: <span>0</span> </div>
+      <div> Ordered: <span >0</span> </div>
       <div> In Stock: <span>{{ item.quantity }}</span> </div>
     </div>
   </div>

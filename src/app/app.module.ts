@@ -24,6 +24,9 @@ import { ItemsComponent } from './components/items/items.component';
 import { ItemComponent } from './components/item/item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+import {NgxPaginationModule} from 'ngx-pagination';
+import {itemFilterPipe} from "./components/items/itemFilter.pipe";
+
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NotFoundComponent,
     SearchComponent,
     ItemsComponent,
-    ItemComponent
+    ItemComponent,
+    itemFilterPipe
   ],
   imports: [
     NgxsModule.forRoot([ProductState], {}),
@@ -45,7 +49,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

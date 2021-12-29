@@ -24,6 +24,7 @@
     "@ngxs/logger-plugin": "^3.7.2-dev.master-78fbf9a",
     "@ngxs/store": "^3.7.2-dev.master-78fbf9a",
     "font-awesome": "^4.7.0",
+    "ngx-pagination": "^5.1.1",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

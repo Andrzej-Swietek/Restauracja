@@ -21,16 +21,23 @@ export class ItemComponent implements OnInit {
 
   faTrash = faTrash;
 
+
+
   ngOnInit(): void {
   }
   plus(){
-    if(this.item.quantity!=0)
-    this.store.dispatch(new EditProduct({
-      ...this.item,
-      quantity: this.item.quantity - 1
-    }))
+    if(this.item.quantity!=0){
+      this.store.dispatch(new EditProduct({
+        ...this.item,
+        quantity: this.item.quantity - 1
+      }))
+
+      // console.log(this.ordered);
+    }
+
   }
   minus(){
+    // if(this.ordered>0)
     this.store.dispatch(new EditProduct({
       ...this.item,
       quantity: this.item.quantity + 1

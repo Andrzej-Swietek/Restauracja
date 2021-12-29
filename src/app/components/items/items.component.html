@@ -1,3 +1,15 @@
-<ng-container *ngFor="let item of products$ | async">
-  <app-item *ngIf="(((item.name.includes(filter.name) && (categoryFilter(filter.category, item.category) || filter.category.length==0) && (filter.cuisine.includes(item.cuisine) || filter.cuisine.length==0)) && filter.price>=item.price) || filter.category.length==0)" [item]="item"></app-item>
-</ng-container>
+<div class="grid">
+  <ng-container *ngFor="let item of products$ | async
+    | itemFilter: filter.name: filter.category:filter.cuisine:filter.price
+    |paginate:{itemsPerPage:4, currentPage: currentPg}">
+
+    <app-item [item]="item" ></app-item>
+
+  </ng-container>
+</div>
+
+<div class="paginate">
+  <pagination-controls (pageChange)="currentPg = $event" ></pagination-controls>
+</div>
+
+

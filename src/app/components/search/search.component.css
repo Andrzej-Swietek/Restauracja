@@ -116,6 +116,11 @@ label {
   font-weight: 900;
 }
 
+.categoriesForm >h1,
+.cuisinesForm >h1 {
+  color: var(--secondary);
+}
+
 .categoriesForm div > input,
 .cuisinesForm div > input{
   margin-inline: 2rem;

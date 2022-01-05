@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
+import {ActivatedRoute, Router} from "@angular/router";
+import {Store} from "@ngxs/store";
+import {ProductModel} from "../../store/models/product.model";
+import {Observable} from "rxjs";
+import {faUser,  faStar, faChevronLeft, faChevronRight} from "@fortawesome/free-solid-svg-icons";
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -7,9 +11,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute, private store: Store) { }
+  public id: number;
+  public product$: ProductModel;
+  faUser = faUser;
+  faStar = faStar;
+  faChevronLeft = faChevronLeft;
+  faChevronRight = faChevronRight
+  public imageId: number = 0;
+
+  changeImage(direction: 'left'|'right') {
+    if (direction=='left') {
+      this.imageId--;
+      if ( this.imageId < 0 ) this.imageId = this.product$.gallery.length-1;
+    } else {
+      this.imageId++;
+      if ( this.imageId > this.product$.gallery.length-1 ) this.imageId = 0;
+    }
+  }
 
   ngOnInit(): void {
+    this.route.params.subscribe( (params:any) => {
+      this.id = parseInt( params["id"] );
+      console.log(this.id)
+      this.store.select( state => state.products.products).subscribe( data => {
+        this.product$ = data[this.id];
+        console.log(data, this.product$)
+      })
+    })
   }
 
 }

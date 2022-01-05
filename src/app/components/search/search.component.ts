@@ -47,7 +47,6 @@ export class SearchComponent implements OnInit {
   }
   emitFilter(){
     let f= { name: this.filteredName, category: this.filteredCategories , cuisine: this.filteredCuisines, price: parseInt(this.filteredPrice) }
-    console.log(f);
     this.filter.emit(f);
   }
 

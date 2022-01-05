@@ -14,15 +14,14 @@ import {CategoryType, CuisineType} from "../../shared/types";
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.css']
 })
+
 export class ItemComponent implements OnInit {
 
   @Input() item: ProductModel;
   constructor(private store: Store) { }
 
   faTrash = faTrash;
-
-
-
+  
   ngOnInit(): void {
   }
   plus(){
@@ -31,13 +30,9 @@ export class ItemComponent implements OnInit {
         ...this.item,
         quantity: this.item.quantity - 1
       }))
-
-      // console.log(this.ordered);
     }
-
   }
   minus(){
-    // if(this.ordered>0)
     this.store.dispatch(new EditProduct({
       ...this.item,
       quantity: this.item.quantity + 1

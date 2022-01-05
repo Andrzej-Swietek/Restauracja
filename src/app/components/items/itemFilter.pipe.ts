@@ -15,9 +15,7 @@ export class itemFilterPipe implements PipeTransform{
   transform(items: ProductModel[], name:string,
             category:CategoryType[], cuisine:CuisineType[], price:number): ProductModel[] {
     return items.filter(item =>
-      (this.categoryFilter(category, item.category) || category.length == 0)
-      && (cuisine.includes(item.cuisine) || cuisine.length==0) && price >= item.price )
+      ((item.name.includes(name)) && (this.categoryFilter(category, item.category) || category.length == 0)
+      && (cuisine.includes(item.cuisine) || cuisine.length==0) && price >= item.price ))
   }
 }
-
-// (item.name.includes(name) &&

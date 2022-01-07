@@ -60,6 +60,10 @@ img {
   box-shadow: var(--shadow4);
 }
 
+@media (min-width: 1600px) {
+  .name { height: 30%; }
+}
+
 .name > .h2 {
   display: flex;
   width: 100%;
@@ -128,6 +132,11 @@ img {
 
 
 .col {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
   margin: 1rem;
   font-size: 1.2rem;
   font-weight: 900;

@@ -53,6 +53,12 @@ aside.summary {
   position: sticky;
 }
 
+@media (max-width: 1600px) {
+  aside.summary {
+    height: 60vh;
+  }
+}
+
 aside.summary > h1 {
   font-size: 2rem;
   margin-block: 1rem;

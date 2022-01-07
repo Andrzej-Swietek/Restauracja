@@ -51,9 +51,9 @@ footer{
   box-shadow: var(--shadow4);
   z-index: 99999;
   margin-inline: 0.25rem;
-  transition: .5s;
+  transition: 1s;
 }
 
 .contact > *:hover {
-  transform: scale(1.1) rotateZ(45deg);
+  transform: scale(1.1) rotateX(360deg)  rotateY(360deg) rotateZ(45deg);
 }

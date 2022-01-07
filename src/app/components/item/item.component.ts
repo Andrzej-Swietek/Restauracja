@@ -8,6 +8,7 @@ import {ProductState} from "../../store/state/product.state";
 import {AddProduct, EditProduct, RemoveProduct} from "../../store/actions/product.action";
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import {CategoryType, CuisineType} from "../../shared/types";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-item',
@@ -18,10 +19,10 @@ import {CategoryType, CuisineType} from "../../shared/types";
 export class ItemComponent implements OnInit {
 
   @Input() item: ProductModel;
-  constructor(private store: Store) { }
+  constructor(private store: Store, private router: Router) { }
 
   faTrash = faTrash;
-  
+
   ngOnInit(): void {
   }
   plus(){
@@ -43,4 +44,7 @@ export class ItemComponent implements OnInit {
     this.store.dispatch(new RemoveProduct(this.item));
   }
 
+  goTo(id: number) {
+    this.router.navigate(['product', `${id-1}`])
+  }
 }

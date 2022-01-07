@@ -29,7 +29,8 @@ const defaultCartItem: CartModel = {
   name: 'cart',
   defaults: {
     cart: [
-      // defaultCartItem
+      defaultCartItem,
+      defaultCartItem,
     ]
   }
 })

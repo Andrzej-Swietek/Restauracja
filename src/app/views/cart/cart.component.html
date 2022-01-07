@@ -1,0 +1,18 @@
+<h1 class="title"> Cart </h1>
+<div class="grid">
+  <app-cart-item *ngFor="let item of cart$ | async" [item]="item"></app-cart-item>
+<!--  <div *ngFor="let i of [].constructor(5).fill('xx')" [id]="i"> {{i}}</div>-->
+</div>
+<aside class="summary">
+  <h1> Summary </h1>
+  <h2> Products Prices: {{ totalToPay | currency }} </h2>
+  <h2> Tax (23%): {{ totalToPay*0.23 | currency }} </h2>
+  <h2> Shipping: {{ shippingPrice | currency }} </h2>
+  <div class="discount">Discount: {{ discount }}% </div>
+  <h1> Total to pay: <span appSuccess>{{ (1.23*totalToPay+shippingPrice)*(100-discount)/100 | currency }}</span>  </h1>
+
+  <div class="btn-section">
+    <app-round-btn [text]="'PAY'" [onClick]="pay"></app-round-btn>
+  </div>
+</aside>
+

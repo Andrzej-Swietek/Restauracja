@@ -1,0 +1,73 @@
+:host {
+  /*width: 100%;*/
+  width: 90%;
+  grid-column: span 11;
+  height: 25vh;
+  box-shadow: var(--shadow4);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-flow: row wrap;
+}
+
+h1 {
+  width: 100%;
+  /*border: #dc3545 solid 1px;*/
+  text-align: center;
+  padding-block: 1rem;
+  color: var(--secondary);
+}
+h2 {
+  width: 100%;
+  /*border: #dc3545 solid 1px;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row nowrap;
+}
+
+h2 > span {
+  color: var(--success);
+  margin-inline: .5rem;
+}
+
+.btns {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row nowrap;
+  background: rgba(243,243,243,1);
+  margin-top: 2rem;
+  border-radius: 45px 45px;
+}
+
+.btns > button {
+  z-index: 1;
+  box-sizing: border-box;
+  background: var(--secondary);
+  color: var(--primary);
+  /*padding: 1rem;*/
+  width: 60px;
+  height: 60px;
+  margin: 1rem;
+  border-radius: 50%;
+  border: var(--primary) solid 3px;
+  aspect-ratio: 1 / 1 !important;
+  cursor: pointer;
+  box-shadow: var(--shadow4);
+  transition: .5s;
+}
+
+.btns > button:hover {
+  background: var(--primary);
+  color: var(--secondary);
+  border: var(--secondary) solid 3px;
+  outline: var(--secondary) solid 2px;
+  outline-offset: -10px;
+  box-shadow: var(--shadow4);
+}
+
+.btns:focus-within {
+  box-shadow: var(--shadow4);
+}

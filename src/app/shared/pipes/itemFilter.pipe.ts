@@ -1,6 +1,6 @@
 import {Pipe, PipeTransform} from "@angular/core";
 import {ProductModel} from "../../store/models/product.model";
-import {CategoryType, CuisineType} from "../../shared/types";
+import {CategoryType, CuisineType} from "../types";
 
 @Pipe({
   name:'itemFilter'

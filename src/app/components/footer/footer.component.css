@@ -12,6 +12,7 @@ footer{
   align-items: center;
   justify-content: center;
   flex-flow: row wrap;
+  position: relative;
 }
 .copyrights {
   width: 100%;
@@ -19,4 +20,35 @@ footer{
   align-items: center;
   justify-content: center;
   flex-flow: row wrap;
+}
+
+.contact {
+  position: absolute;
+  right: 5rem;
+  top: -3vh;
+  height: 7vh;
+  width: 20%;
+  /*background: #000;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row wrap;
+  z-index: 9999;
+}
+
+.contact > * {
+  background: var( --secondary );
+  width: 65px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row wrap;
+  border-radius: 50%;
+  outline: var(--primary) 2px solid;
+  outline-offset: -10px;
+  cursor: pointer;
+  box-shadow: var(--shadow4);
+  z-index: 99999;
+  margin-inline: 0.25rem;
 }

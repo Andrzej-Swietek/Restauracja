@@ -25,7 +25,14 @@ import { ItemComponent } from './components/item/item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import {NgxPaginationModule} from 'ngx-pagination';
-import {itemFilterPipe} from "./components/items/itemFilter.pipe";
+import {itemFilterPipe} from "./shared/pipes/itemFilter.pipe";
+import { CartComponent } from './views/cart/cart.component';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
+import {CartState} from "./store/state/cart.state";
+import { RoundBtnComponent } from './components/round-btn/round-btn.component';
+import { SuccessDirective } from './shared/directives/success.directive';
+import { PasswordLengthDetectorDirective } from './shared/directives/password-lenght-detector.directive';
+
 
 
 @NgModule({
@@ -39,10 +46,15 @@ import {itemFilterPipe} from "./components/items/itemFilter.pipe";
     SearchComponent,
     ItemsComponent,
     ItemComponent,
-    itemFilterPipe
+    itemFilterPipe,
+    CartComponent,
+    CartItemComponent,
+    RoundBtnComponent,
+    SuccessDirective,
+    PasswordLengthDetectorDirective,
   ],
   imports: [
-    NgxsModule.forRoot([ProductState], {}),
+    NgxsModule.forRoot([ProductState, CartState], {}),
     NgxsLoggerPluginModule.forRoot(),
     ReactiveFormsModule,
     HttpClientModule,

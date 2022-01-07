@@ -4,6 +4,7 @@
   color: var(--secondary);
   background: var(--primary);
   box-shadow: var(--shadow1);
+  z-index: 1;
 }
 nav{
   width: 100%;

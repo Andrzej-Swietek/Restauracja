@@ -8,15 +8,17 @@ import {CategoryType, CuisineType} from "../types";
 export class itemFilterPipe implements PipeTransform{
   categoryFilter(filterCategory:CategoryType[], itemCategory:CategoryType[]):boolean{
     let result = false;
-    filterCategory.forEach((v)=> itemCategory.includes(v) && (result=true))
+    filterCategory.forEach((v)=> {
+      if(itemCategory.includes(v))
+        result = true;
+    })
     return result;
   }
 
-  transform(items: ProductModel[], name:string,
-              category:CategoryType[], cuisine:CuisineType[], price:number): ProductModel[] {
+  transform(items: ProductModel[], filter:{name:string, price:number, cuisine:CuisineType[], category:CategoryType[]}): ProductModel[] {
     return items.filter(item =>
-      ((item.name.includes(name)) && (this.categoryFilter(category, item.category) || category.length == 0)
+      ((item.name.includes(filter.name)) && (this.categoryFilter(filter.category, item.category) || filter.category.length == 0)
 
-      && (cuisine.includes(item.cuisine) || cuisine.length==0) && price >= item.price ))
+      && (filter.cuisine.includes(item.cuisine) || filter.cuisine.length==0) && filter.price >= item.price ))
   }
 }

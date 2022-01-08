@@ -9,6 +9,7 @@ import {AddProduct, EditProduct, RemoveProduct} from "../../store/actions/produc
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import {CategoryType, CuisineType} from "../../shared/types";
 import {Router} from "@angular/router";
+import {ProductServiceService} from "../../services/product-service.service";
 
 @Component({
   selector: 'app-item',
@@ -19,7 +20,7 @@ import {Router} from "@angular/router";
 export class ItemComponent implements OnInit {
 
   @Input() item: ProductModel;
-  constructor(private store: Store, private router: Router) { }
+  constructor(private store: Store, private router: Router, private productService: ProductServiceService) { }
 
   faTrash = faTrash;
 
@@ -42,6 +43,8 @@ export class ItemComponent implements OnInit {
 
   deleteHandle() {
     this.store.dispatch(new RemoveProduct(this.item));
+    // this.productService.deleteProduct(this.item.id);
+
   }
 
   goTo(id: number) {

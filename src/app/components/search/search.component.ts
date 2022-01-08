@@ -21,12 +21,14 @@ export class SearchComponent implements OnInit {
   filteredCuisines: CuisineType[] = [];
 
   onCategoryChange(category:CategoryType):void{
-    if(this.filteredCategories.includes(category))
+    if(this.filteredCategories.includes(category)) {
       this.filteredCategories = this.filteredCategories.filter(c=>c!=category)
-    else
+      this.emitFilter();
+    }
+    else{
       this.filteredCategories.push(category);
-
-    this.emitFilter();
+      this.emitFilter();
+    }
   }
   onCuisineChange(cuisine:CuisineType):void{
     if(this.filteredCuisines.includes(cuisine))
@@ -47,11 +49,12 @@ export class SearchComponent implements OnInit {
   }
   emitFilter(){
     let f= { name: this.filteredName, category: this.filteredCategories , cuisine: this.filteredCuisines, price: parseInt(this.filteredPrice) }
+    console.log(f);
     this.filter.emit(f);
   }
 
   ngOnInit(): void {
-    this.filter.emit({name:"", category:[], cuisine:[], price:150});
+    this.filter.emit({name:this.filteredName, category:this.filteredCategories, cuisine:this.filteredCuisines, price:parseInt(this.filteredPrice)});
   }
 
 }

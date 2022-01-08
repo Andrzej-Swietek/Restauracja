@@ -11,8 +11,8 @@
       <div class="tag-item" *ngFor="let i of product$.category"> #{{ i }} </div>
     </div>
     <div class="data">
-      <div class="element"> <span>Price</span>: {{ product$.price }} </div>
-      <div class="element"> <span>Quantity</span>: {{ product$.price }} </div>
+      <div class="element"> <span>Price</span>: {{ product$.price | currency }} </div>
+      <div class="element"> <span>Quantity</span>: {{ product$.quantity }} </div>
     </div>
   </div>
   <div class="column subgrid">

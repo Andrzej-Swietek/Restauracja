@@ -1,11 +1,12 @@
 <div class="grid">
   <ng-container *ngFor="let item of products$ | async
-    | itemFilter: filter.name: filter.category:filter.cuisine:filter.price
+    | itemFilter: filter
     |paginate:{itemsPerPage:4, currentPage: currentPg}">
 
     <app-item [item]="item"></app-item>
 
   </ng-container>
+
 </div>
 
 <style>

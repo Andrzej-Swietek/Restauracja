@@ -13,7 +13,7 @@ import {CategoryType, CuisineType} from "../../shared/types";
 export class ItemsComponent implements OnInit {
 
   @Input() filter:{name:string, price:number, category:CategoryType[], cuisine:CuisineType[]} = {name:'', category:[], cuisine: [], price:150};
-  @Input() currentPg = 1;
+  public currentPg = 1;
   @Select(ProductState.getProducts) products$: Observable<ProductModel[]>
 
   constructor(private store: Store) { }

@@ -32,15 +32,3 @@ pagination a.active {
 }
 
 .pagination-c a:hover:not(.active) {background-color: #ddd;}
-
-.test{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100px;
-  height: 10px;
-  z-index: 999999999999999999;
-  border: 1px green solid;
-}
-
-

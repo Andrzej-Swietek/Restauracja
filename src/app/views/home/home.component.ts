@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
 
   @Select(ProductState.getProducts) products$: Observable<ProductModel[]>
   constructor(private store: Store) { }
-
+  public currentPg:number;
   filter : {
     name: string;
     category: CategoryType[];
@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
   }
   handleFilter(payload:{name:string, category: CategoryType[], cuisine: CuisineType[], price:number}):void{
     this.filter = payload;
+    this.currentPg = 1;
     console.log(this.filter);
   }
 

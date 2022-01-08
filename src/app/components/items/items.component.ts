@@ -13,18 +13,15 @@ import {CategoryType, CuisineType} from "../../shared/types";
 export class ItemsComponent implements OnInit {
 
   @Input() filter:{name:string, price:number, category:CategoryType[], cuisine:CuisineType[]} = {name:'', category:[], cuisine: [], price:150};
-
+  @Input() currentPg = 1;
   @Select(ProductState.getProducts) products$: Observable<ProductModel[]>
-  currentPg: string | number;
+
   constructor(private store: Store) { }
 
   ngOnInit(): void {
   }
-
-  categoryFilter(filterCategory:CategoryType[], itemCategory:CategoryType[]):boolean{
-    let result = false;
-    filterCategory.forEach((v)=> itemCategory.includes(v) && (result=true))
-    return result;
+  pageChanged(e):void{
+    this.currentPg = 1;
   }
 
 }

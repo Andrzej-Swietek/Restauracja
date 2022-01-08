@@ -1,4 +1,5 @@
 <div class="grid">
+
   <ng-container *ngFor="let item of products$ | async
     | itemFilter: filter
     |paginate:{itemsPerPage:4, currentPage: currentPg}">
@@ -16,8 +17,8 @@
   }
 </style>
 <div class="paginate">
-
-  <pagination-controls class="my-pagination" (pageChange)="currentPg = $event" ></pagination-controls>
+  <div class="test">{{currentPg}}</div>
+  <pagination-controls class="my-pagination" (pageChange)="currentPg = $event" (pageBoundsCorrection)="pageChanged($event)"></pagination-controls>
 
 </div>
 

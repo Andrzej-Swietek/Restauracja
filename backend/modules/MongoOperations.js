@@ -49,4 +49,19 @@ module.exports = {
       }
     )
   },
+
+  DeleteByProductID: function (collection, id) {
+    collection.remove({ id: id }, () => {
+      console.log(`Collection: ${ id } deleted successfully`)
+    })
+  },
+
+  EditProduct: function (collection, payload) {
+    collection.updateOne(
+      { id: payload.id },
+      { $set: payload  },
+    )
+  }
+
 }
+

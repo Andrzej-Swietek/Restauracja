@@ -45,10 +45,18 @@ export class CartState {
     //TODO jesli nie ma itema juz to pushuj jesli jest to tylko item.quantity zwieksz
     const state = getState();
     let exists = state.cart.some( (cartItem:CartModel)=> cartItem.item.id === payload.item.id )
-    if ( exists ) {  }
+    if ( exists ) {
+      const item = state.cart.filter((e)=> e.item.id == payload.item.id)[0];
+      if(item.item.quantity > 0){
+        item.quantity++;
+        item.item.quantity--;
+      }
+    }
+    else{
       patchState({
-      cart: [...state.cart, payload]
-    })
+        cart: [...state.cart, payload]
+      })
+    }
   }
 
   @Action(RemoveCartItem)

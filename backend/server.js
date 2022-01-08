@@ -18,6 +18,7 @@ const dbOpers = require("./modules/MongoOperations.js")
 
 app.use(express.static('static'));
 app.use(cors())
+app.use(express.json());
 
 app.set('views', path.join(__dirname, 'views'));
 // app.engine('hbs', hbs({
@@ -51,7 +52,7 @@ let context = {};
 const connect = async (collectionName) => {
   return new Promise ((async resolve => {
     await client.connect();
-    console.log("Connected correctly to server");
+    console.log("Connected correctly to DB");
     let db = client.db(dbName);
     let col = db.collection(collectionName);
     resolve({database:db,collection:col})
@@ -73,6 +74,26 @@ app.get('/', (req, res) => {
     })
   })()
 });
+
+app.delete("/delete/:id", (req, res) => {
+    (async () => {
+      const {id} = req.params;
+      const connection = await connect("Products")
+      dbOpers.DeleteByProductID( connection.collection, id )
+      res.send({ "msg": "success" })
+    })()
+  })
+
+app.post("/edit", (req,res)=>{
+  ( async()=>{
+    const payload = req.body;
+    console.log( payload )
+    const connection = await connect("Products")
+    dbOpers.EditProduct(connection.collection, payload)
+    res.send({ "message":"ok" });
+  })()
+})
+
 app.listen(PORT, ()=> {
   console.log('Server listening on  ' + PORT);
 });

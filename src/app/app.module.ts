@@ -32,6 +32,7 @@ import {CartState} from "./store/state/cart.state";
 import { RoundBtnComponent } from './components/round-btn/round-btn.component';
 import { SuccessDirective } from './shared/directives/success.directive';
 import { PasswordLengthDetectorDirective } from './shared/directives/password-lenght-detector.directive';
+import { HelloComponent } from './views/hello/hello.component';
 
 
 
@@ -52,6 +53,7 @@ import { PasswordLengthDetectorDirective } from './shared/directives/password-le
     RoundBtnComponent,
     SuccessDirective,
     PasswordLengthDetectorDirective,
+    HelloComponent,
   ],
   imports: [
     NgxsModule.forRoot([ProductState, CartState], {}),

@@ -4,6 +4,7 @@
   background: var(--secondary);
   color: var(--primary);
   grid-column: 1/-1;
+  z-index: 999999999999;
 }
 footer{
   width: 100%;

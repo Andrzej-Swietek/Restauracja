@@ -29,8 +29,6 @@ const defaultCartItem: CartModel = {
   name: 'cart',
   defaults: {
     cart: [
-      defaultCartItem,
-      defaultCartItem,
     ]
   }
 })
@@ -42,7 +40,6 @@ export class CartState {
 
   @Action(AddCartItem)
   add({getState, patchState}: StateContext<CartStateModel>, { payload }: AddCartItem){
-    //TODO jesli nie ma itema juz to pushuj jesli jest to tylko item.quantity zwieksz
     const state = getState();
     let exists = state.cart.some( (cartItem:CartModel)=> cartItem.item.id === payload.item.id )
     if ( exists ) {
@@ -54,7 +51,7 @@ export class CartState {
     }
     else{
       patchState({
-        cart: [...state.cart, payload]
+        cart: [...state.cart, {item:payload.item,quantity:1}]
       })
     }
   }
@@ -62,24 +59,26 @@ export class CartState {
   @Action(RemoveCartItem)
   remove({getState, patchState}: StateContext<CartStateModel>, { payload }: RemoveCartItem){
     // TODO: ZMNIEJSZANIE ILOSCI I JESLI ZERO TO FILTER OUT
-    const cartItem: CartModel = getState().cart.filter( (cartItem: CartModel) => cartItem.item.id !== payload.item.id )[0];
-    if( cartItem.quantity == 1 ) {
+    const cartItem: CartModel = getState().cart.filter( (cartItem: CartModel) => cartItem.item.id == payload.item.id )[0];
+    if( cartItem.quantity > 1 ) {
       patchState({
         cart: getState().cart.map( (cartItem: CartModel) => {
           if ( cartItem.item.id !== payload.item.id ) return cartItem;
           else {
             return {
               item: payload.item,
-              quantity: cartItem.quantity+1
+              quantity: cartItem.quantity-1
             }
           }
         })
       })
     }
     else {
+      cartItem.item.quantity++;
       patchState({
         cart: getState().cart.filter( (cartItem: CartModel) => cartItem.item.id !== payload.item.id )
       })
+
     }
   }
 }

@@ -20,6 +20,16 @@ export class ProductComponent implements OnInit {
   faChevronRight = faChevronRight
   public imageId: number = 0;
 
+
+
+  ngOnInit(): void {
+    this.route.params.subscribe( (params:any) => {
+      this.id = parseInt( params["id"] );
+      this.store.select( state => state.products.products).subscribe( data => {
+        this.product$ = data.filter( e => e.id == this.id )[0]
+      })
+    })
+  }
   changeImage(direction: 'left'|'right') {
     if (direction=='left') {
       this.imageId--;
@@ -29,16 +39,4 @@ export class ProductComponent implements OnInit {
       if ( this.imageId > this.product$.gallery.length-1 ) this.imageId = 0;
     }
   }
-
-  ngOnInit(): void {
-    this.route.params.subscribe( (params:any) => {
-      this.id = parseInt( params["id"] );
-      console.log(this.id)
-      this.store.select( state => state.products.products).subscribe( data => {
-        this.product$ = data[this.id];
-        console.log(data, this.product$)
-      })
-    })
-  }
-
 }

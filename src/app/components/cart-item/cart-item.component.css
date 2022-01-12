@@ -68,6 +68,12 @@ h2 > span {
   box-shadow: var(--shadow4);
 }
 
+.btns > button:disabled:hover,
+.btns > button:disabled{
+  background: var(--danger);
+  color: var(--primary);
+}
+
 .btns:focus-within {
   box-shadow: var(--shadow4);
 }

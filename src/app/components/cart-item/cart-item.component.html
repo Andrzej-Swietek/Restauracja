@@ -1,10 +1,10 @@
 <h1> {{ item.item.name | titlecase }} </h1>
 <h2> <span> {{ item.item.price | currency }} </span> x  {{ item.quantity }} = {{ item.item.price * item.quantity | currency }}</h2>
 <div class="btns">
-  <button>
+  <button (click)="plus()" [disabled]="item.item.quantity<=0">
     <fa-icon [icon]="faPlus"></fa-icon>
   </button>
-  <button>
+  <button (click)="minus()">
     <fa-icon [icon]="faMinus"></fa-icon>
   </button>
   <button>

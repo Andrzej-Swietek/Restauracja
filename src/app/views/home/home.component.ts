@@ -27,7 +27,6 @@ export class HomeComponent implements OnInit {
   handleFilter(payload:{name:string, category: CategoryType[], cuisine: CuisineType[], price:number}):void{
     this.filter = payload;
     this.currentPg = 1;
-    console.log(this.filter);
   }
 
 }

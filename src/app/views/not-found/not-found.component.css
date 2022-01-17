@@ -1,0 +1,46 @@
+:host{
+  width: 100%;
+  height: 80vh;
+  background: var(--bg);
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 1rem;
+  justify-content: space-around;
+  align-items: center;
+  padding-right: 10rem;
+  z-index: 2;
+  padding: 2rem;
+  /*justify-items: center;*/
+}
+
+.message {
+  grid-column: span 5;
+  height: 90%;
+  box-shadow: var(--shadow4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  background: var(--danger);
+}
+
+.message > h1 {
+  color: #fff;
+}
+
+.card {
+  height: 90%;
+  grid-column: span 7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  box-shadow: var(--shadow4);
+}
+
+.card > img {
+  height: 100%;
+  object-fit: contain;
+
+}

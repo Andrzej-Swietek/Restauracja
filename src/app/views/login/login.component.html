@@ -1,0 +1,9 @@
+<form [formGroup]="loginForm" class="card">
+  <div class="row"><label for="email">Email:</label>      <input id="email"    type="email"     placeholder="adam@nowak.pl" formControlName="email" />  </div>
+  <div class="row"><label for="pass">Password</label>     <input id="pass"     type="password"  placeholder="Qwerty1234" formControlName="password" />  </div>
+  <div class="row">
+    <app-round-btn (click)="login()" [text]="'Login'"></app-round-btn>
+    <app-round-btn (click)="register()" [text]="'Register'"></app-round-btn>
+  </div>
+</form>
+

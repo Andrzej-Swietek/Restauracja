@@ -12,7 +12,13 @@ const getAllProducts = (req,res) => {
 }
 
 const getProduct = (req,res) => {
-
+  (async()=>{
+    const {id} = req.params;
+    const connection = await DBConnection.connect("Products", DBConnection.getClient())
+    dbOpers.SelectAllFromDatabase(connection.collection, (data)=>{
+      res.send({ "message":"ok", data: data.filter( e=> e.id == id )[0] });
+    })
+  })()
 }
 
 const editProduct = (req,res) => {

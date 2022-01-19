@@ -1,5 +1,6 @@
 const dbOpers = require("../modules/MongoOperations.js");
 const DBConnection = require('../DB');
+const Crypto = require('../Crypto');
 const nodemailer = require('nodemailer');
 
 const EMAILSETUP = {
@@ -38,12 +39,25 @@ const getUser = (req,res) => {
     })
   })()
 }
+
+const login = (req,res) => {
+  (async()=>{
+    const data = req.body;
+    const connection = await DBConnection.connect("Users", DBConnection.getClient())
+    dbOpers.FindUser(connection.collection, { email: data.email, password: Crypto.hash(data.password) }, (data)=>{
+
+    })
+  })()
+}
+
 const addUser = (req,res) => {
   (async()=>{
     const payload = req.body;
     console.log( payload )
 
     payload["cart"] = [];
+    payload.password = Crypto.hash(payload.password);
+    // console.log(Crypto.hash(payload.password))
     payload["role"] = ["client"];
     const connection = await DBConnection.connect("Users", DBConnection.getClient())
     dbOpers.InsertToDatabase(connection.collection, payload);

@@ -1,8 +1,9 @@
+const crypto = require('crypto');
 class Crypto {
   static salt = 'f844b09ff50c'
   static algorithm = 'aes-256-cbc';
   static hash(text) {
-    return crypto.pbkdf2Sync(text.password, this.salt, 1000, 64, 'sha512').toString('hex')
+    return crypto.pbkdf2Sync(text, this.salt, 1000, 32, 'sha512').toString('hex')
   }
   static decrypt(obj) {
 
@@ -27,3 +28,4 @@ class Crypto {
   }
 
 }
+module.exports = Crypto

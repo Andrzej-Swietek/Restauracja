@@ -22,7 +22,7 @@ const addUser = (req,res) => {
   (async()=>{
     const payload = req.body;
     console.log( payload )
-    // TODO: EWENTUALNIE DODAC POLE CART
+    payload["cart"]=[];
     const connection = await DBConnection.connect("Users", DBConnection.getClient())
     dbOpers.InsertToDatabase(connection.collection, payload);
     res.send({ "message":"User Created Successfully" });

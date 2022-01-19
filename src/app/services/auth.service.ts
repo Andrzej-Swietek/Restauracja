@@ -21,6 +21,6 @@ export class AuthService {
     this.http.post( this.url + "/login", {email, password}, this.httpOptions )
   }
   register(user: RegisterUser) {
-    this.http.post( this.url + "/user/register", user, this.httpOptions )
+   this.http.post( this.url + "/user/register", user, this.httpOptions )
   }
 }

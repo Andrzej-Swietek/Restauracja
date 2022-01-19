@@ -48,6 +48,11 @@ app.set('views', path.join(__dirname, 'views'));
 //   partialsDir: "views/partials",
 // }));
 
+const userRoutes = require('./routes/user.js');
+const productRoutes = require('./routes/product');
+app.use(userRoutes);
+app.use(productRoutes);
+
 let context = {};
 const connect = async (collectionName) => {
   return new Promise ((async resolve => {
@@ -57,8 +62,6 @@ const connect = async (collectionName) => {
     let col = db.collection(collectionName);
     resolve({database:db,collection:col})
   }))
-
-
 }
 
 app.get('/', (req, res) => {

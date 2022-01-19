@@ -1,0 +1,24 @@
+<form [formGroup]="registerForm" class="card">
+  <div class="row"><label for="name">Name:</label>        <input id="name"     type="text"      placeholder="Name ... " formControlName="name" />  </div>
+  <div class="row"><label for="lastname">Lastname:</label><input id="lastname" type="text"      placeholder="Lastname ..." formControlName="lastname" /></div>
+  <div class="row"><label for="email">Email:</label>      <input id="email"    type="email"     placeholder="adam@nowak.pl" formControlName="email" />  </div>
+  <div class="row"><label for="pass">Password</label>     <input id="pass"     type="password"  placeholder="Qwerty1234" formControlName="password" />  </div>
+  <div class="row">
+    <app-round-btn (click)="register()" [text]="'Register'"></app-round-btn>
+    <app-round-btn (click)="login()" [text]="'Login'"></app-round-btn>
+  </div>
+</form>
+
+
+<div class="errors" *ngIf="registerForm.touched && registerForm.invalid">
+  <div class="msg" *ngIf="registerForm.touched && (name.touched&&name.invalid || lastname.touched&&lastname.invalid)">
+    <p> Please fill name and last name </p>
+  </div>
+  <div class="msg" *ngIf="registerForm.touched && (email.touched&&email.invalid)">
+    <p> Please fill email </p>
+  </div>
+  <div class="msg" *ngIf="registerForm.touched && (pass.touched&&pass.invalid)">
+    <p> Please add secure password (min. 8 letters or numbers A-Z; a-z ; 0-9) </p>
+  </div>
+</div>
+

@@ -65,3 +65,21 @@ a:hover:after {
   transform-origin: bottom left;
 }
 
+.login {
+  justify-self: flex-end;
+  font-size: 2rem;
+  position: absolute;
+  right: 1rem;
+  border: none;
+}
+
+.login > a {
+  height: 2rem !important;
+}
+
+.login > a::before,
+.login > a:hover::before,
+.login > a:hover::after,
+.login > a::after {
+  display: none !important;
+}

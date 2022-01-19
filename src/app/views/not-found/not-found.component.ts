@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-not-found',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotFoundComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
+  meme: string = "";
   ngOnInit(): void {
+    this.http.get("https://api.imgflip.com/get_memes")
+      .subscribe( data=> {
+        this.meme = data[0]
+      })
   }
 
 }

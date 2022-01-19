@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Store} from "@ngxs/store";
 import {RegisterUser} from "../shared/types";
 import {environment} from "../../environments/environment";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,8 @@ export class AuthService {
     this.http.post( this.url + "/login", {email, password}, this.httpOptions )
   }
   register(user: RegisterUser) {
-   this.http.post( this.url + "/user/register", user, this.httpOptions )
+
+    console.log('REGISTER')
+    return this.http.post( this.url + "/user/register", user, this.httpOptions )
   }
 }

@@ -42,12 +42,19 @@ export class RegisterComponent implements OnInit {
 
   register():void {
     if (this.registerForm.valid) {
-      this.authService.register({
+      console.log({
         name: this.name.value,
         lastname: this.lastname.value,
         email: this.email.value,
         password: this.pass.value,
       })
+      this.authService.register({
+        name: this.name.value,
+        lastname: this.lastname.value,
+        email: this.email.value,
+        password: this.pass.value,
+      }).subscribe( data=> console.log )
+      alert('User Added')
     }
   }
 

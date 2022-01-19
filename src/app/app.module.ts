@@ -35,6 +35,8 @@ import { PasswordLengthDetectorDirective } from './shared/directives/password-le
 import { HelloComponent } from './views/hello/hello.component';
 import { RegisterComponent } from './views/register/register.component';
 import { LoginComponent } from './views/login/login.component';
+import {AuthService} from "./services/auth.service";
+import {ProductServiceService} from "./services/product-service.service";
 
 
 
@@ -70,7 +72,7 @@ import { LoginComponent } from './views/login/login.component';
     FontAwesomeModule,
     NgxPaginationModule
   ],
-  providers: [],
+  providers: [ProductServiceService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

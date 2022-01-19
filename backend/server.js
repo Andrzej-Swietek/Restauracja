@@ -21,6 +21,7 @@ app.use(cors())
 app.use(express.json());
 
 app.set('views', path.join(__dirname, 'views'));
+
 // app.engine('hbs', hbs({
 //   defaultLayout: 'main.hbs' ,
 //   helpers: {
@@ -95,6 +96,10 @@ app.post("/edit", (req,res)=>{
     dbOpers.EditProduct(connection.collection, payload)
     res.send({ "message":"ok" });
   })()
+})
+
+app.post("*", (req,res)=>{
+  res.send({ "message":"wrong url" });
 })
 
 app.listen(PORT, ()=> {

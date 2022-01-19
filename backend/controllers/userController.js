@@ -1,5 +1,25 @@
 const dbOpers = require("../modules/MongoOperations.js");
 const DBConnection = require('../DB');
+const nodemailer = require('nodemailer');
+
+const EMAILSETUP = {
+  address:'ncesl2015@gmail.com',
+  pass: 'antropomancja'
+}
+const transporter = nodemailer.createTransport({
+  host: 'mail.localhost',
+  service: 'gmail',
+  port: 587,
+  secure: false, // true for 465, false for other ports
+  auth: {
+    user: EMAILSETUP.address,
+    pass: EMAILSETUP.pass
+  },
+  tls:{
+    rejectUnauthorized:false
+  }
+});
+
 
 const getAllUsers = (req,res) => {
   (async()=>{
@@ -22,9 +42,23 @@ const addUser = (req,res) => {
   (async()=>{
     const payload = req.body;
     console.log( payload )
-    // TODO: EWENTUALNIE DODAC POLE CART
+    payload["cart"] = [];
+    payload["role"] = ["client"];
     const connection = await DBConnection.connect("Users", DBConnection.getClient())
     dbOpers.InsertToDatabase(connection.collection, payload);
+
+    // SENDING EMAIL
+    let mailOptions = {
+      from: EMAILSETUP.address,
+      to: payload.email,
+      subject: 'WELCOME',
+      html: '<h1>Welcome to our Restaurant</h1><p>Have a good meal</p>'
+    }
+    // transporter.sendMail(mailOptions, function(error, info){
+    //   if (error) { console.log(error);}
+    //   else { console.log('Email sent: ' + info.response); }
+    // });
+
     res.send({ "message":"User Created Successfully" });
   })()
 }

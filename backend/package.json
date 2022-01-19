@@ -11,8 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "express": "^4.17.2",
     "express-handlebars": "^6.0.2",
-    "mongodb": "^3.6.6"
+    "mongodb": "^3.6.6",
+    "nodemailer": "^6.7.2"
   }
 }

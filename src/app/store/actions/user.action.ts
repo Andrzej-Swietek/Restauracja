@@ -7,5 +7,5 @@ export class LoginUser {
 
 export class LogoutUser{
   static readonly type = "[USER] Logout";
-  constructor(public payload: UserModel) {}
+  constructor(public payload: UserModel | any) {}
 }

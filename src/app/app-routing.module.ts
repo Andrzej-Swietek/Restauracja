@@ -7,12 +7,13 @@ import {CartComponent} from "./views/cart/cart.component";
 import {HelloComponent} from "./views/hello/hello.component";
 import {RegisterComponent} from "./views/register/register.component";
 import {LoginComponent} from "./views/login/login.component";
+import {UserGuardGuard} from "./shared/user-guard.guard";
 
 const routes: Routes = [
   { path: "", component: HelloComponent },
   { path: "menu", component: HomeComponent },
   { path: "product/:id", component: ProductComponent },
-  { path: "cart", component: CartComponent },
+  { path: "cart", component: CartComponent,canActivate: [UserGuardGuard] },
   { path: "register", component: RegisterComponent },
   { path: "login", component: LoginComponent },
   { path: "**", component: NotFoundComponent }

@@ -37,6 +37,7 @@ import { RegisterComponent } from './views/register/register.component';
 import { LoginComponent } from './views/login/login.component';
 import {AuthService} from "./services/auth.service";
 import {ProductServiceService} from "./services/product-service.service";
+import {UserState} from "./store/state/user.state";
 
 
 
@@ -62,7 +63,7 @@ import {ProductServiceService} from "./services/product-service.service";
     LoginComponent,
   ],
   imports: [
-    NgxsModule.forRoot([ProductState, CartState], {}),
+    NgxsModule.forRoot([ProductState, CartState, UserState], {}),
     NgxsLoggerPluginModule.forRoot(),
     ReactiveFormsModule,
     HttpClientModule,

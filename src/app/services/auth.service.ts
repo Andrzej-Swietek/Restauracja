@@ -19,7 +19,7 @@ export class AuthService {
   constructor(private http: HttpClient, private store: Store) { }
 
   login(email: string, password: string){
-    this.http.post( this.url + "/login", {email, password}, this.httpOptions )
+    return this.http.post( this.url + "/user/login", {email, password}, this.httpOptions )
   }
   register(user: RegisterUser) {
 

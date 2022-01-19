@@ -1,7 +1,10 @@
+require('dotenv').config()
 const dbOpers = require("../modules/MongoOperations.js");
 const DBConnection = require('../DB');
 const Crypto = require('../Crypto');
 const nodemailer = require('nodemailer');
+const jwt = require("jsonwebtoken");
+
 
 const EMAILSETUP = {
   address:'ncesl2015@gmail.com',
@@ -44,7 +47,14 @@ const login = (req,res) => {
   (async()=>{
     const data = req.body;
     const connection = await DBConnection.connect("Users", DBConnection.getClient())
-    dbOpers.FindUser(connection.collection, { email: data.email, password: Crypto.hash(data.password) }, (data)=>{
+    dbOpers.FindUser(connection.collection, { email: data.email, password: Crypto.hash(data.password) }, (user)=>{
+
+      if(user.length>0){
+          user[0]["token"] = jwt.sign(user[0], process.env.ACCESS_TOKEN);
+          res.send(user[0]);
+      }
+      else
+        res.send(JSON.stringify({"message":"rejected"}))
 
     })
   })()
@@ -94,5 +104,6 @@ module.exports = {
   getUser,
   addUser,
   deleteUser,
-  editUsersCart
+  editUsersCart,
+  login
 }

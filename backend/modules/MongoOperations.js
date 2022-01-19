@@ -17,6 +17,12 @@ module.exports = {
       });
   },
 
+  FindUser: async function (collection, user, callback) {
+    collection.find({email: user.email, password: user.password}).toArray(function (err, items) {
+      console.log(items)
+      callback(items)
+    });
+  },
   //select - zwraca tablicę pasujących dokumentów, z ograniczeniem do {login:"test"}
 
   SelectAndLimit: function (collection, objectToFind, callback) {

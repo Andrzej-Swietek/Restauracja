@@ -38,6 +38,7 @@ import { LoginComponent } from './views/login/login.component';
 import {AuthService} from "./services/auth.service";
 import {ProductServiceService} from "./services/product-service.service";
 import {UserState} from "./store/state/user.state";
+import { RoleDirective } from './shared/directives/role.directive';
 
 
 
@@ -61,6 +62,7 @@ import {UserState} from "./store/state/user.state";
     HelloComponent,
     RegisterComponent,
     LoginComponent,
+    RoleDirective,
   ],
   imports: [
     NgxsModule.forRoot([ProductState, CartState, UserState], {}),

@@ -6,7 +6,9 @@ import {ProductStateModel} from "./product.state";
 export class UserStateModel {
   user: UserModel;
 }
-
+const emptyUser: UserModel = {
+  email: "", lastname: "", name: "", password: "", role: [], token: ""
+}
 @State<UserStateModel>({
   name: 'user',
   defaults: {

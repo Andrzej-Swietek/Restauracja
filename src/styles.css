@@ -46,3 +46,11 @@ app-root {
 }
 
 
+.admin {
+  color: gold;
+  border: gold solid 2px;
+}
+
+.manager {
+
+}

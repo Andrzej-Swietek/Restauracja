@@ -71,6 +71,7 @@ a:hover:after {
   position: absolute;
   right: 1rem;
   border: none;
+  cursor: pointer;
 }
 
 .login > a {
@@ -82,4 +83,55 @@ a:hover:after {
 .login > a:hover::after,
 .login > a::after {
   display: none !important;
+}
+
+
+.infopanel {
+  outline: var(--secondary) 2px solid;
+  outline-offset: -10px;
+  position: fixed;
+  top: 10vh;
+  right: 0;
+  background: var(--primary);
+  width: 300px;
+  height: 35vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  box-shadow: var(--shadow4);
+  border-radius: 0 0 0 5px;
+}
+
+.infopanel > .element {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row nowrap;
+  font-size: 1.4rem;
+}
+
+.infopanel > .info {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  border: 2px solid var(--secondary);
+  padding-left: 0;
+  margin-block: 1rem;
+  padding-block: 1rem;
+}
+
+.infopanel > .element > * {
+  margin-inline: 1rem;
+}
+
+.selectable { margin-block: .5rem; }
+.selectable:hover {
+  filter: brightness(-55%);
+  cursor: pointer;
 }

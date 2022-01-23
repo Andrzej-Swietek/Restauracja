@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
               password: data.password,
               role: data.role,
               token: data.token,
+              banned: data.banned,
               cart: data.cart || []
             }))
             this.loginSuccess = 'success';

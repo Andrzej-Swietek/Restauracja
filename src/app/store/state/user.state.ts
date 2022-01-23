@@ -7,7 +7,7 @@ export class UserStateModel {
   user: UserModel;
 }
 const emptyUser: UserModel = {
-  email: "", lastname: "", name: "", password: "", role: [], token: ""
+  email: "", lastname: "", name: "", password: "", role: [], token: "", banned: false
 }
 @State<UserStateModel>({
   name: 'user',

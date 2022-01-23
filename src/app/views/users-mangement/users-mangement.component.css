@@ -1,0 +1,76 @@
+:host {
+  width: 100%;
+  height: 80vh;
+  background: var(--bg);
+  grid-column: 1/-1;
+  grid-gap: 1rem;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  overflow-y: scroll;
+}
+
+.title {
+  width: 100%;
+  grid-column: 1 / -1 ;
+  text-align: center;
+  font-weight: 900;
+  font-size: 3rem;
+  padding-block: 1rem;
+}
+
+.grid {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 1rem;
+  justify-items: center;
+}
+
+.grid > .row {
+  grid-column: 1 / -1;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  height: 10vh;
+  transition: .5s;
+}
+.grid > .row:hover {
+  box-shadow: var(--shadow3);
+}
+
+.grid > .row  > .cell {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-overflow: ellipsis;
+}
+
+.grid > .row  > .cell > button {
+  padding: 1rem 2rem;
+  background: var(--danger);
+  color: #fff;
+  border-radius: 5px;
+  border: 0;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.grid > .row  > .cell > button:hover {
+  filter: brightness(90%);
+}
+
+.grid > .row  > .header-cell {
+  background: var(--secondary);
+  color: var(--primary);
+  position: relative;
+}
+.grid > .row  > .header-cell::after{
+  content: '';
+  position: absolute;
+  width: 90%;
+  height: 50%;
+  border: var(--primary) 3px solid;
+  border-radius: 45px;
+}

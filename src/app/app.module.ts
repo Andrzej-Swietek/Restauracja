@@ -41,6 +41,9 @@ import {UserState} from "./store/state/user.state";
 import { RoleDirective } from './shared/directives/role.directive';
 import { LoginAlertComponent } from './components/login-alert/login-alert.component';
 import { FailureDirective } from './shared/directives/failure.directive';
+import { AdminPanelComponent } from './views/admin-panel/admin-panel.component';
+import { UsersMangementComponent } from './views/users-mangement/users-mangement.component';
+import {UsersService} from "./services/users.service";
 
 
 
@@ -67,6 +70,8 @@ import { FailureDirective } from './shared/directives/failure.directive';
     RoleDirective,
     LoginAlertComponent,
     FailureDirective,
+    AdminPanelComponent,
+    UsersMangementComponent,
   ],
   imports: [
     NgxsModule.forRoot([ProductState, CartState, UserState], {}),
@@ -79,7 +84,7 @@ import { FailureDirective } from './shared/directives/failure.directive';
     FontAwesomeModule,
     NgxPaginationModule
   ],
-  providers: [ProductServiceService,AuthService],
+  providers: [ProductServiceService,AuthService, UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

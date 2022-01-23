@@ -8,6 +8,7 @@ import {HelloComponent} from "./views/hello/hello.component";
 import {RegisterComponent} from "./views/register/register.component";
 import {LoginComponent} from "./views/login/login.component";
 import {UserGuardGuard} from "./shared/user-guard.guard";
+import {UsersMangementComponent} from "./views/users-mangement/users-mangement.component";
 
 const routes: Routes = [
   { path: "", component: HelloComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: "cart", component: CartComponent,canActivate: [UserGuardGuard] },
   { path: "register", component: RegisterComponent },
   { path: "login", component: LoginComponent },
+  { path: "user-management", component: UsersMangementComponent },
   { path: "**", component: NotFoundComponent }
 
 ];

@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {faShoppingCart} from "@fortawesome/free-solid-svg-icons/faShoppingCart";
-import {faUserCircle, faCog, faBrain} from "@fortawesome/free-solid-svg-icons/";
-import {Select} from "@ngxs/store";
+import {faUserCircle, faCog, faBrain, faSignOutAlt} from "@fortawesome/free-solid-svg-icons/";
+import {Select, Store} from "@ngxs/store";
 import {UserState} from "../../store/state/user.state";
 import {Observable} from "rxjs";
 import {UserModel} from "../../store/models/user.model";
+import {LogoutUser} from "../../store/actions/user.action";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-navbar',
@@ -14,12 +16,13 @@ import {UserModel} from "../../store/models/user.model";
 export class NavbarComponent implements OnInit {
 
   @Select(UserState.getUser) user$: Observable<UserModel>;
-  constructor() { }
+  constructor(private store: Store, private router: Router) { }
 
   faCart = faShoppingCart;
   faUser = faUserCircle;
   faSettings = faCog;
-  faBrain = faBrain
+  faBrain = faBrain;
+  faLogout = faSignOutAlt;
 
   showInfo: boolean = false;
 
@@ -34,5 +37,9 @@ export class NavbarComponent implements OnInit {
   }
 
   toggleShowInfo():void { this.showInfo = !this.showInfo; }
-
+  logout(){
+    this.store.dispatch(new LogoutUser(''));
+    this.showInfo = false;
+    this.router.navigate(["/login"]);
+  }
 }

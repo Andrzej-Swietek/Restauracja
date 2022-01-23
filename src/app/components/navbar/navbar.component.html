@@ -17,4 +17,5 @@
   <div class="element selectable"> Cart <fa-icon [icon]="faCart"></fa-icon> </div>
   <div class="element selectable"> Settings <fa-icon [icon]="faSettings"></fa-icon> </div>
   <div class="element selectable"*ngIf="(user$ | async)?.role.includes('admin')"> Admin Panel <fa-icon [icon]="faBrain"></fa-icon> </div>
+  <div class="element selectable" (click)="logout()" > Logout <fa-icon [icon]="faLogout"></fa-icon> </div>
 </div>

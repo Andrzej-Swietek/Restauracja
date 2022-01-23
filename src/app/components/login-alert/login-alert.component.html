@@ -1,0 +1,6 @@
+<div class="alert">
+  <h1 *ngIf="success=='success'" appSuccess> Logged in successfully </h1>
+  <h1 *ngIf="success=='failure'" appFailure> Incorrect Email or Password </h1>
+  <button *ngIf="success=='success'" (click)="goToCart()"> Go to Cart </button>
+  <button *ngIf="success=='failure'" (click)="closeAlert()"> Try again </button>
+</div>

@@ -6,4 +6,5 @@
     <app-round-btn (click)="register()" [text]="'Register'"></app-round-btn>
   </div>
 </form>
+<app-login-alert *ngIf="showAlert" [success]="loginSuccess" (close)="closeAlert()"></app-login-alert>
 

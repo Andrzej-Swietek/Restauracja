@@ -12,13 +12,15 @@
 .card {
   background: #fff;
   width: 70%;
-  height: 60%;
+  /*height: 60%;*/
+  padding: 1rem;
   box-shadow: var(--shadow4);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-flow: column nowrap;
 }
+
 
 .card > .row {
   margin-block: 1rem;

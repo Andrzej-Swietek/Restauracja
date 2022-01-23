@@ -86,3 +86,11 @@ aside.summary > h2 {
   background: var(--secondary);
   outline: var(--primary) 2px solid;
 }
+
+.no-items {
+  grid-column: span 9;
+  padding: 1rem;
+  display: flex;align-items: center;justify-content: center;
+}
+
+.no-items > h1 {    border: var(--secondary) 2px solid; padding: 2rem; width: 80%; color: var(--secondary); display: flex;align-items: center;justify-content: center; }

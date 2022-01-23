@@ -94,7 +94,8 @@ a:hover:after {
   right: 0;
   background: var(--primary);
   width: 300px;
-  height: 35vh;
+  /*height: 35vh;*/
+  padding-block: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -19,6 +19,8 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({});
 
   constructor(private fb: FormBuilder, private router: Router, private authService:AuthService, private store: Store) { }
+  showAlert: boolean = false;
+  loginSuccess: 'success'|'failure'|'nottaken'='nottaken';
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -52,7 +54,18 @@ export class LoginComponent implements OnInit {
               token: data.token,
               cart: data.cart || []
             }))
+            this.loginSuccess = 'success';
+            this.showAlert = true;
+
         }
+          else {
+            this.loginSuccess = 'failure';
+            this.showAlert = true;
+          }
+        }
+        else {
+          this.loginSuccess = 'failure';
+          this.showAlert = true;
         }
       })
     }
@@ -62,5 +75,8 @@ export class LoginComponent implements OnInit {
   register(){
     this.router.navigate(["/register"])
   }
-
+  closeAlert(){
+    this.showAlert = false;
+    this.loginSuccess = "nottaken";
+  }
 }

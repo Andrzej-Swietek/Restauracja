@@ -1,0 +1,50 @@
+:host {
+  position: fixed;
+  top: 50%;
+  width: 80%;
+  transform: translateY(-50%);
+  height: 40vh;
+  background: var(--primary);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  z-index: 99999999;
+  box-shadow: var(--shadow4);
+  border: var(--secondary) .2em solid;
+  outline: var(--secondary) .2em solid;
+  outline-offset: 10px;
+}
+
+.alert {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+}
+
+.alert > h1 {
+  width: 100%;
+  text-align: center;
+  color: var(--secondary);
+  margin-block: 1.5rem;
+}
+
+.alert > button {
+  padding: 1rem 2rem;
+  background: var(--secondary);
+  color: var(--primary);
+  border-radius: 45px;
+  border: var(--secondary) 2px solid;
+  cursor: pointer;
+  transition: .5s;
+  box-shadow: var(--shadow4);
+}
+
+.alert > button:hover {
+  background: var(--primary);
+  color: var(--secondary);
+}

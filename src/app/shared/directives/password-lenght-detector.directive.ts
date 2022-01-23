@@ -17,11 +17,11 @@ export class PasswordLengthDetectorDirective implements OnChanges{
     let count = this.el.nativeElement.value.length
     console.log(this.el.nativeElement.value.length);
     if(count < 5) {
-      this.el.nativeElement.style.backgroundColor = 'red'
-    } else if(count >= 5 && count <= 10) {
-      this.el.nativeElement.style.backgroundColor = 'green'
-    } else if(count > 10) {
-      this.el.nativeElement.style.backgroundColor = 'purple'
+      this.el.nativeElement.style.backgroundColor = '#dc35455d'
+    } else if(count >= 8 && count <= 15) {
+      this.el.nativeElement.style.backgroundColor = '#1987545d'
+    } else if(count > 15) {
+      this.el.nativeElement.style.backgroundColor = 'rgba(124, 58, 237,.5)'
     }
   }
 

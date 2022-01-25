@@ -1,5 +1,5 @@
 <div class="item-container" (click)="goTo(item.id)">
-  <div class="del" (click)="deleteHandle()"><fa-icon [icon]="faTrash"></fa-icon></div>
+  <div *ngIf="(user$ | async)?.role.includes('admin')" class="del" (click)="deleteHandle()"><fa-icon [icon]="faTrash"></fa-icon></div>
   <img [src]="item.gallery[0]" alt="image">
   <div class="name"> <h2>{{ item.name | uppercase }}</h2> <h3>{{item.cuisine | uppercase}}</h3> </div>
   <div class="price"><h1> ${{ item.price }} </h1></div>

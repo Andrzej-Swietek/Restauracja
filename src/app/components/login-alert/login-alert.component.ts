@@ -15,8 +15,8 @@ export class LoginAlertComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goToCart(){
-    this.router.navigate(["/cart"]);
+  goToMenu(){
+    this.router.navigate(["/menu"]);
   }
 
   closeAlert() {

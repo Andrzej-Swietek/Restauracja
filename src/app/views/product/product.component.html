@@ -1,8 +1,10 @@
 <div class="card">
+
  <div class="gallery">
    <div class="arrowLeft" (click)="changeImage('left')"> <fa-icon [icon]="faChevronLeft"></fa-icon> </div>
    <div class="arrowRight" (click)="changeImage('right')"> <fa-icon [icon]="faChevronRight"></fa-icon> </div>
    <img [src]="product$.gallery[ imageId ]" alt="image">
+   <div class="return" (click)="goBack()"> <fa-icon [icon]="faArrow"></fa-icon> GO BACK </div>
  </div>
 
   <div class="column">

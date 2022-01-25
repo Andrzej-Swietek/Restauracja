@@ -3,6 +3,8 @@ import {Select, Store} from "@ngxs/store";
 import {CartState} from "../../store/state/cart.state";
 import {Observable} from "rxjs";
 import {CartModel} from "../../store/models/cart.model";
+import {UsersService} from "../../services/users.service";
+import {ProductServiceService} from "../../services/product-service.service";
 
 @Component({
   selector: 'app-cart',
@@ -11,8 +13,9 @@ import {CartModel} from "../../store/models/cart.model";
 })
 export class CartComponent implements OnInit {
 
+
   @Select( CartState.getCart ) cart$ : Observable<CartModel[]>
-  constructor(private store: Store) { }
+  constructor(private store: Store, private userService: UsersService, private productService:ProductServiceService) { }
   public shippingPrice :number = 14;
 
   ngOnInit(): void {
@@ -36,6 +39,18 @@ export class CartComponent implements OnInit {
 
 
   pay():void {
-    alert('Paid');
+    // let productsIDs : number[] = [];
+    // this.cart$.subscribe( (data:CartModel[])=> {
+    //   data.forEach((item:CartModel)=>{
+    //     console.log(item.item)
+    //     this.productService.editProduct(item.item).subscribe( (d) => console.log(data))
+    //   })
+    //   productsIDs = data.map( (v:CartModel)=> v.item.id)
+    // })
+    // this.userService.addToCartHistory({date:Date().toString(), products:productsIDs}).subscribe((data)=>{
+    //   console.log(data);
+    // })
+    // alert('paid');
+
   }
 }

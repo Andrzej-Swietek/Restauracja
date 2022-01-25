@@ -33,15 +33,13 @@ export class CartItemComponent implements OnInit {
 
 
   plus(){
-    console.log(this.item.item.quantity)
     if(this.item.item.quantity>0){
       this.store.dispatch(new EditProduct({
         ...this.item.item,
         quantity: this.item.item.quantity - 1
       }))
+      this.store.dispatch(new AddCartItem(this.item))
     }
-    this.store.dispatch(new AddCartItem(this.item))
-
   }
   minus(){
     if(this.getOrdered()>0){
@@ -49,8 +47,17 @@ export class CartItemComponent implements OnInit {
         ...this.item.item,
         quantity: this.item.item.quantity + 1
       }))
+      this.item.item = {
+        ...this.item.item,
+        quantity: this.item.item.quantity + 1
+      }
+      this.store.dispatch(new RemoveCartItem(this.item))
     }
-    this.store.dispatch(new RemoveCartItem(this.item))
+  }
+  removeAll(){
+    while(this.getOrdered()>0){
+      this.minus();
+    }
   }
 
   getOrdered():number{

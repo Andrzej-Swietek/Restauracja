@@ -20,9 +20,6 @@ export class ProductServiceService {
   }
   constructor(private http: HttpClient, private store: Store) { }
 
-  // getProducts():Observable<ProductModel[]>{
-  //   return this.http.get<ProductModel[]>(this.url,this.httpOptions)
-  // }
   getProducts() {
     this.http.get<ProductModel[]>(this.url, this.httpOptions)
       .subscribe( products => {
@@ -32,7 +29,7 @@ export class ProductServiceService {
       })
   }
   editProduct(object:ProductModel){
-    return this.http.post<ProductModel>(this.url + "/edit", object, this.httpOptions)
+    return this.http.put<ProductModel>(this.url + "/product/edit", object, this.httpOptions)
   }
   deleteProduct(id:number){
     const delUrl = `${this.url}/delete/${id}`;

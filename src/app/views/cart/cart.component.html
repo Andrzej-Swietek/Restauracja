@@ -15,7 +15,7 @@
   <h1> Total to pay: <span appSuccess>{{ (1.23*totalToPay+shippingPrice)*(100-discount)/100 | currency }}</span>  </h1>
 
   <div class="btn-section">
-    <app-round-btn [text]="'PAY'" [onClick]="pay"></app-round-btn>
+    <button (click)="pay()"> PAY </button>
   </div>
 </aside>
 

@@ -13,6 +13,8 @@ import {ProductServiceService} from "../../services/product-service.service";
 import {AddCartItem, RemoveCartItem} from "../../store/actions/cart.action";
 import {CartState, CartStateModel} from "../../store/state/cart.state";
 import {CartModel} from "../../store/models/cart.model";
+import {UserState} from "../../store/state/user.state";
+import {UserModel} from "../../store/models/user.model";
 
 @Component({
   selector: 'app-item',
@@ -25,16 +27,17 @@ export class ItemComponent implements OnInit {
   @Input() item: ProductModel;
   @Select(CartState.getCart) cart$ : Observable<CartModel[]>
   @Select(ProductState.getProducts) products$ : Observable<ProductModel[]>
+  @Select(UserState.getUser) user$: Observable<UserModel>;
   constructor(private store: Store, private router: Router, private productService: ProductServiceService) { }
 
   public cart : CartModel[];
   public ordered: number;
-
-
   faTrash = faTrash;
 
-
   ngOnInit(): void {
+    this.user$.subscribe( data=>{
+      console.log(data)
+    })
   }
   plus(){
 
@@ -43,19 +46,28 @@ export class ItemComponent implements OnInit {
         ...this.item,
         quantity: this.item.quantity - 1
       }))
+      this.item = {
+        ...this.item,
+        quantity: this.item.quantity - 1
+      }
+      this.store.dispatch(new AddCartItem({item:this.item,quantity:this.getOrdered()}))
     }
 
-    this.store.dispatch(new AddCartItem({item:this.item,quantity:this.getOrdered()}))
-
   }
+
   minus(){
     if(this.getOrdered()>0){
       this.store.dispatch(new EditProduct({
         ...this.item,
         quantity: this.item.quantity + 1
       }))
+      this.item = {
+        ...this.item,
+        quantity: this.item.quantity + 1
+      }
+      this.store.dispatch(new RemoveCartItem({item:this.item,quantity:this.getOrdered()}))
     }
-    this.store.dispatch(new RemoveCartItem({item:this.item,quantity:this.getOrdered()}))
+
   }
 
   deleteHandle() {

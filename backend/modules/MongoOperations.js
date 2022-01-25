@@ -23,6 +23,14 @@ module.exports = {
       callback(items)
     });
   },
+
+  EditUser:async function(collection, email, cart){
+    collection.updateOne(
+      { email: email},
+      { $set: { cart: cart }  },
+    )
+  },
+
   //select - zwraca tablicę pasujących dokumentów, z ograniczeniem do {login:"test"}
 
   SelectAndLimit: function (collection, objectToFind, callback) {
@@ -62,7 +70,7 @@ module.exports = {
     })
   },
 
-  EditProduct: function (collection, payload) {
+  EditProduct: async function (collection, payload) {
     collection.updateOne(
       { id: payload.id },
       { $set: payload  },

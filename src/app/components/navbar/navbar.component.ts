@@ -23,6 +23,7 @@ export class NavbarComponent implements OnInit {
   faSettings = faCog;
   faBrain = faBrain;
   faLogout = faSignOutAlt;
+  check:boolean = false;
 
   showInfo: boolean = false;
 
@@ -42,4 +43,9 @@ export class NavbarComponent implements OnInit {
     this.showInfo = false;
     this.router.navigate(["/login"]);
   }
+
+  checkHandle():void{
+    this.check = !this.check;
+  }
+
 }

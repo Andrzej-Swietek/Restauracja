@@ -70,6 +70,10 @@ export class LoginComponent implements OnInit {
         }
       })
     }
+    else {
+      this.loginSuccess = 'failure';
+      this.showAlert = true;
+    }
 
 
   }

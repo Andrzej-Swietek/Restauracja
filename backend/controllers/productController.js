@@ -23,6 +23,7 @@ const getProduct = (req,res) => {
 
 const editProduct = (req,res) => {
   ( async()=>{
+    console.log( req.body )
     const connection = await DBConnection.connect("Products", DBConnection.getClient())
     dbOpers.EditProduct(connection.collection, req.body.name, req.body.quantity)
     res.send({ "message":"ok" });
@@ -32,8 +33,9 @@ const editProduct = (req,res) => {
 const deleteProduct = (req,res) => {
   (async () => {
     const {id} = req.params;
+    console.log( id, req.params )
     const connection = await DBConnection.connect("Products", DBConnection.getClient())
-    dbOpers.DeleteByProductID( connection.collection, id )
+    dbOpers.DeleteByProductID( connection.collection, parseInt(id) )
     res.send({ "msg": "success" })
   })()
 }

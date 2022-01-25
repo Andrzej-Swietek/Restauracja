@@ -74,7 +74,7 @@ export class ItemComponent implements OnInit {
     this.store.dispatch(new RemoveProduct(this.item));
 
     // do usuwania produktów z bazy
-    // this.productService.deleteProduct(this.item.id);
+    this.productService.deleteProduct(this.item.id).subscribe( d=> console.log(d) )
 
   }
 

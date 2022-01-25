@@ -83,11 +83,17 @@ module.exports = {
     )
   },
 
+  // DeleteByProductID: function (collection, id) {
+  //   collection.remove({ id: id }, () => {
+  //     console.log(`Collection: ${ id } deleted successfully`)
+  //   })
+  // },
   DeleteByProductID: function (collection, id) {
-    collection.remove({ id: id }, () => {
+    collection.deleteOne({ id: id }, () => {
       console.log(`Collection: ${ id } deleted successfully`)
     })
   },
+
 
   EditProduct: function (collection, name, quantity) {
     collection.updateOne(

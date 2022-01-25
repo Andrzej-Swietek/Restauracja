@@ -29,10 +29,11 @@ export class ProductServiceService {
       })
   }
   editProduct(object:{name:string, quantity:number}){
-    return this.http.put(this.url + "/product/edit", {object})
+    return this.http.put(this.url + "/product/edit", object)
   }
   deleteProduct(id:number){
-    const delUrl = `${this.url}/delete/${id}`;
+    console.log(id)
+    const delUrl = `${this.url}/product/delete/${id}`;
     return this.http.delete(delUrl, this.httpOptions)
   }
 }

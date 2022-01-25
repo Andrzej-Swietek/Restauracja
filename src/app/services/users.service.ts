@@ -41,8 +41,10 @@ export class UsersService {
   banUser(user: UserModel){
     return this.http.put(this.url + "/user/ban", {email: user.email, value: !user.banned})
   }
+
   changeRole(obj:{email:string, roles:UserRole[]}){
     return this.http.put(this.url + "/user/changeRole", {email:obj.email, value:obj.roles})
   }
+
   deleteUser(id:number){ }
 }

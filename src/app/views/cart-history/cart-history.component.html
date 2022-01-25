@@ -1,1 +1,15 @@
-<p>cart-history works!</p>
+<h1 class="title"> {{ (user$ | async)?.name }} {{ (user$ | async)?.lastname }}'s Order history: </h1>
+<div class="listOfOrders">
+  <div *ngFor="let item of history ">
+    <div class="date"> <h1>{{ item.date | date: 'medium' }}</h1>  </div>
+    <div class="products">
+      <div class="product" *ngFor="let p of item.products">
+       <div class="name">
+         {{ p.name }}
+       </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+

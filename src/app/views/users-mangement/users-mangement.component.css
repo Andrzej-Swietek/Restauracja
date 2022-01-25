@@ -79,6 +79,7 @@
   background: var(--success) !important;
 }
 
+
 .edit {
   visibility: hidden;
   position: absolute;
@@ -197,3 +198,4 @@ checkbox-container:hover .checkmark {
   cursor: pointer;
   margin-top: 2rem;
 }
+

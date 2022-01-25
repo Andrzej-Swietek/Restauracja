@@ -30,6 +30,7 @@ export class UsersMangementComponent implements OnInit {
   toggleBan(user: UserModel){
     alert( user.banned? 'User Unbaned' : 'User Bannedd' )
     this.usersService.banUser(user).subscribe( res => console.log )
+
   }
   handleEdit(user:UserModel):void{
     this.popupData.email = user.email;
@@ -49,6 +50,7 @@ export class UsersMangementComponent implements OnInit {
     this.usersService.changeRole(this.popupData).subscribe(res=>console.log)
     this.popupData.email = '';
     this.popupData.roles = [];
+
   }
 
 }

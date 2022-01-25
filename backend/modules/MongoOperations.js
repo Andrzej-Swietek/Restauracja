@@ -43,6 +43,13 @@ module.exports = {
     )
   },
 
+  BanUser: function(collection, email, value){
+    collection.updateOne(
+      { email: email},
+      { $set: { banned: value }  },
+    )
+  },
+
   //select - zwraca tablicę pasujących dokumentów, z ograniczeniem do {login:"test"}
 
   SelectAndLimit: function (collection, objectToFind, callback) {

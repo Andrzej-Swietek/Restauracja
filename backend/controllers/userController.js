@@ -111,6 +111,7 @@ const banUser = (req,res) => {
     res.send({ "msg": `User Banned` })
   })()
 }
+
 const changeRole = (req,res) =>{
   (async () => {
     const connection = await DBConnection.connect("Users", DBConnection.getClient())
@@ -118,6 +119,7 @@ const changeRole = (req,res) =>{
     res.send({ "msg": `Role changed` })
   })()
 }
+
 
 module.exports = {
   getAllUsers,
@@ -128,4 +130,5 @@ module.exports = {
   login,
   banUser,
   changeRole
+
 }

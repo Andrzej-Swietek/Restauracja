@@ -54,7 +54,8 @@ export class LoginComponent implements OnInit {
               token: data.token,
               banned: data.banned,
               cart: data.cart || []
-            }))
+            }));
+            sessionStorage.setItem("pending-session", JSON.stringify(data));
             this.loginSuccess = 'success';
             this.showAlert = true;
 

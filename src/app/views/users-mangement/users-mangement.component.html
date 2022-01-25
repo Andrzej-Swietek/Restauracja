@@ -17,6 +17,7 @@
     <div class="cell role-cell"> <div class="edit" (click)="handleEdit(user)"> <fa-icon [icon]="faEdit"></fa-icon></div> {{ user.role }}                </div>
     <div class="cell" [ngStyle]="{'color': user.banned? 'red':'var(--secondary)'}"> {{ user.banned }}      </div>
     <div class="cell" *ngIf="!user.banned" (click)="toggleBan(user)"> <button> Ban </button>      </div>
+
     <div class="cell" *ngIf="user.banned" (click)="toggleBan(user)"> <button class="unban"> Unban </button>    </div>
     <div class="rolesForm" *ngIf="showRoles && user.email==popupData.email">
       <h1>Change role for {{user.name}} {{user.lastname}}</h1>
@@ -27,6 +28,9 @@
       </form>
       <button class="set" (click)="setRoles()"> Set Roles </button>
     </div>
+
+    <div class="cell unban" *ngIf="user.banned" (click)="toggleBan(user)"> <button> Unban </button>    </div>
+
   </div>
 
 

@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "login", component: LoginComponent },
   { path: "user-management", component: UsersMangementComponent, canActivate: [UserGuardGuard] },
-  { path: "cart-history", component: CartHistoryComponent},
+  { path: "cart-history", component: CartHistoryComponent, canActivate: [UserGuardGuard]},
   { path: "**", component: NotFoundComponent }
 ];
 

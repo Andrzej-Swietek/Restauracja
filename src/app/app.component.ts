@@ -15,7 +15,10 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     this.productService.getProducts();
     const userSession: string | null =  sessionStorage.getItem("pending-session")
-    if ( userSession !== null ){
+
+    if ( localStorage.getItem("session-persistence") === null ) localStorage.setItem("session-persistance", 'true');
+    const shouldPersist = localStorage.getItem("session-persistence") === 'true'
+    if ( userSession !== null && shouldPersist){
       const user = JSON.parse(userSession);
       this.store.dispatch(new LoginUser({
         email: user.email,

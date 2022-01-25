@@ -10,6 +10,7 @@ import {LoginComponent} from "./views/login/login.component";
 import {UserGuardGuard} from "./shared/user-guard.guard";
 import {UsersMangementComponent} from "./views/users-mangement/users-mangement.component";
 import {CartHistoryComponent} from "./views/cart-history/cart-history.component";
+import {SettingsComponent} from "./views/settings/settings.component";
 
 const routes: Routes = [
   { path: "", component: HelloComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "user-management", component: UsersMangementComponent, canActivate: [UserGuardGuard] },
   { path: "cart-history", component: CartHistoryComponent, canActivate: [UserGuardGuard]},
+  {path:"settings", component:SettingsComponent, canActivate: [UserGuardGuard]},
   { path: "**", component: NotFoundComponent }
 ];
 

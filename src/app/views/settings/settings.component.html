@@ -1,0 +1,10 @@
+<div class="settings-container">
+
+  <form class="sessionForm">
+    <h1>Change session persistence options</h1>
+    <div class="radio-button-container"> SESSION <input type="radio" name="session" value="SESSION" (input)="onSessionSettingsChange()" checked><span class="checkmark"></span></div>
+    <div class="radio-button-container"> NONE <input type="radio" name="session" value="NONE" (input)="onSessionSettingsChange()"><span class="checkmark"></span></div>
+    <button (click)="saveHandle()">Save</button>
+  </form>
+
+</div>

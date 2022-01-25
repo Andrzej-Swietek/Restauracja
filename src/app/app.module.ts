@@ -45,6 +45,7 @@ import { AdminPanelComponent } from './views/admin-panel/admin-panel.component';
 import { UsersMangementComponent } from './views/users-mangement/users-mangement.component';
 import {UsersService} from "./services/users.service";
 import { CartHistoryComponent } from './views/cart-history/cart-history.component';
+import { SettingsComponent } from './views/settings/settings.component';
 
 
 
@@ -74,6 +75,7 @@ import { CartHistoryComponent } from './views/cart-history/cart-history.componen
     AdminPanelComponent,
     UsersMangementComponent,
     CartHistoryComponent,
+    SettingsComponent,
   ],
   imports: [
     NgxsModule.forRoot([ProductState, CartState, UserState], {}),

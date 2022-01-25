@@ -104,6 +104,13 @@ const editUsersCart = (req,res) => {
     })
   })()
 }
+const banUser = (req,res) => {
+  (async () => {
+    const connection = await DBConnection.connect("Users", DBConnection.getClient())
+    dbOpers.BanUser(connection.collection, req.body.email, req.body.value);
+    res.send({ "msg": `User Banned` })
+  })()
+}
 
 module.exports = {
   getAllUsers,
@@ -111,5 +118,6 @@ module.exports = {
   addUser,
   deleteUser,
   editUsersCart,
-  login
+  login,
+  banUser
 }

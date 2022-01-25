@@ -16,8 +16,8 @@
     <div class="cell"> {{ user.lastname }}            </div>
     <div class="cell"> {{ user.email }}               </div>
     <div class="cell" [ngStyle]="{'color': user.banned? 'red':'var(--secondary)'}"> {{ user.banned }}      </div>
-    <div class="cell" *ngIf="!user.banned" (click)="toggleBan()"> <button> Ban </button>      </div>
-    <div class="cell" *ngIf="user.banned" (click)="toggleBan()"> <button> Unban </button>    </div>
+    <div class="cell" *ngIf="!user.banned" (click)="toggleBan(user)"> <button> Ban </button>      </div>
+    <div class="cell unban" *ngIf="user.banned" (click)="toggleBan(user)"> <button> Unban </button>    </div>
   </div>
 
 </div>

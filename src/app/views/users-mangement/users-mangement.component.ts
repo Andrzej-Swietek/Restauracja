@@ -21,8 +21,9 @@ export class UsersMangementComponent implements OnInit {
       })
   }
 
-  toggleBan(){
-    alert('Toggle Ban')
+  toggleBan(user: UserModel){
+    alert( user.banned? 'User Unbaned' : 'User Bannedd' )
+    this.usersService.banUser(user).subscribe( res => console.log )
   }
 
 }

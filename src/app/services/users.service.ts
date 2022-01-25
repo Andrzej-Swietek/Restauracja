@@ -38,6 +38,8 @@ export class UsersService {
   }
 
 
-  banUser(id:number){ }
+  banUser(user: UserModel){
+    return this.http.put(this.url + "/user/ban", {email: user.email, value: !user.banned})
+  }
   deleteUser(id:number){ }
 }

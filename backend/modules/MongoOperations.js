@@ -23,6 +23,33 @@ module.exports = {
       callback(items)
     });
   },
+
+  EditUser:async function(collection, email, cart){
+    collection.updateOne(
+      { email: email},
+      { $set: { cart: cart }  },
+    )
+  },
+  BanUser: function(collection, email, value){
+    collection.updateOne(
+      { email: email},
+      { $set: { banned: value }  },
+    )
+  },
+  ChangeRole: function (collection,email,value){
+    collection.updateOne(
+      {email:email},
+      { $set: {role:value} },
+    )
+  },
+
+  BanUser: function(collection, email, value){
+    collection.updateOne(
+      { email: email},
+      { $set: { banned: value }  },
+    )
+  },
+
   //select - zwraca tablicę pasujących dokumentów, z ograniczeniem do {login:"test"}
 
   SelectAndLimit: function (collection, objectToFind, callback) {
@@ -56,16 +83,22 @@ module.exports = {
     )
   },
 
+  // DeleteByProductID: function (collection, id) {
+  //   collection.remove({ id: id }, () => {
+  //     console.log(`Collection: ${ id } deleted successfully`)
+  //   })
+  // },
   DeleteByProductID: function (collection, id) {
-    collection.remove({ id: id }, () => {
+    collection.deleteOne({ id: id }, () => {
       console.log(`Collection: ${ id } deleted successfully`)
     })
   },
 
-  EditProduct: function (collection, payload) {
+
+  EditProduct: function (collection, name, quantity) {
     collection.updateOne(
-      { id: payload.id },
-      { $set: payload  },
+      { name: name },
+      { $set: {quantity:quantity}  },
     )
   }
 

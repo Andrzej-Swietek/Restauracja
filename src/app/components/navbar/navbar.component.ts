@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {faShoppingCart} from "@fortawesome/free-solid-svg-icons/faShoppingCart";
-import {faUserCircle, faCog, faBrain, faSignOutAlt} from "@fortawesome/free-solid-svg-icons/";
+
+import {faUserCircle, faCog, faBrain, faSignOutAlt, faUsers} from "@fortawesome/free-solid-svg-icons/";
+
 import {Select, Store} from "@ngxs/store";
 import {UserState} from "../../store/state/user.state";
 import {Observable} from "rxjs";
@@ -23,6 +25,8 @@ export class NavbarComponent implements OnInit {
   faSettings = faCog;
   faBrain = faBrain;
   faLogout = faSignOutAlt;
+  faUsers = faUsers;
+  check:boolean = false;
 
   showInfo: boolean = false;
 
@@ -41,5 +45,14 @@ export class NavbarComponent implements OnInit {
     this.store.dispatch(new LogoutUser(''));
     this.showInfo = false;
     this.router.navigate(["/login"]);
+    sessionStorage.removeItem("pending-session");
+  }
+
+  checkHandle():void{
+    this.check = !this.check;
+  }
+
+  goTo(link: string) {
+    this.router.navigate([link])
   }
 }

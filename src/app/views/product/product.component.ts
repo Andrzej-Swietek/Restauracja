@@ -3,7 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Store} from "@ngxs/store";
 import {ProductModel} from "../../store/models/product.model";
 import {Observable} from "rxjs";
-import {faUser,  faStar, faChevronLeft, faChevronRight} from "@fortawesome/free-solid-svg-icons";
+import {faUser,  faStar, faChevronLeft, faChevronRight, faArrowAltCircleLeft} from "@fortawesome/free-solid-svg-icons";
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -16,8 +16,10 @@ export class ProductComponent implements OnInit {
   public product$: ProductModel;
   faUser = faUser;
   faStar = faStar;
+  faArrow = faArrowAltCircleLeft;
+
   faChevronLeft = faChevronLeft;
-  faChevronRight = faChevronRight
+  faChevronRight = faChevronRight;
   public imageId: number = 0;
 
 
@@ -38,5 +40,8 @@ export class ProductComponent implements OnInit {
       this.imageId++;
       if ( this.imageId > this.product$.gallery.length-1 ) this.imageId = 0;
     }
+  }
+  goBack(){
+    this.router.navigate(['/menu'])
   }
 }

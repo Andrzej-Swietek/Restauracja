@@ -96,8 +96,30 @@ const deleteUser = (req,res) => {
   })()
 }
 const editUsersCart = (req,res) => {
-
+  (async () => {
+    console.log(req.body)
+    const connection = await DBConnection.connect("Users", DBConnection.getClient())
+    dbOpers.EditUser(connection.collection, req.body.email, req.body.cart, ()=>{
+      res.send({ "msg": "success" })
+    })
+  })()
 }
+const banUser = (req,res) => {
+  (async () => {
+    const connection = await DBConnection.connect("Users", DBConnection.getClient())
+    dbOpers.BanUser(connection.collection, req.body.email, req.body.value);
+    res.send({ "msg": `User Banned` })
+  })()
+}
+
+const changeRole = (req,res) =>{
+  (async () => {
+    const connection = await DBConnection.connect("Users", DBConnection.getClient())
+    dbOpers.ChangeRole(connection.collection, req.body.email, req.body.value);
+    res.send({ "msg": `Role changed` })
+  })()
+}
+
 
 module.exports = {
   getAllUsers,
@@ -105,5 +127,8 @@ module.exports = {
   addUser,
   deleteUser,
   editUsersCart,
-  login
+  login,
+  banUser,
+  changeRole
+
 }

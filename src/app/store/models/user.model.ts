@@ -6,6 +6,7 @@ export interface UserModel{
   lastname: string;
   name: string;
   password: string;
+  banned: boolean;
   role: UserRole[];
   token: string;
 }

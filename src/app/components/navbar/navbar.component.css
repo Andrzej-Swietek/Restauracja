@@ -6,6 +6,146 @@
   box-shadow: var(--shadow1);
   z-index: 1;
 }
+.menu-container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.toggler{
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  opacity: 0;
+  z-index: 3;
+  cursor: pointer;
+}
+.hamburger{
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+
+}
+.hamburger>div{
+  position: absolute;
+  width: 50%;
+  height: 3px;
+  border-radius: 1.5px;
+  background: var(--primary);
+  transition: 0.5s;
+
+}
+
+.hamburger>div:before, .hamburger>div:after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  border-radius: 1.5px;
+  background: var(--primary);
+  transition: 0.5s;
+}
+
+.hamburger>div:before{
+  top: -10px;
+}
+.hamburger>div:after{
+  top: 10px;
+}
+
+.toggler:checked + .hamburger>div{
+  transform: rotate(135deg);
+}
+
+.toggler:checked:hover + .hamburger>div{
+  transform: rotate(225deg);
+}
+
+.toggler:checked + .hamburger>div::after,.toggler:checked + .hamburger>div::before{
+
+  transform: rotate(90deg);
+  top: 0;
+}
+
+.toggler:checked ~ .menu{
+  visibility: visible;
+}
+
+.toggler:checked ~ .menu > div{
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.toggler:checked ~ .menu > div > div{
+  opacity: 1;
+}
+.menu{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  visibility: hidden;
+  transition: 0.5s;
+}
+
+.menu>div{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-150%) translateY(-50%);
+  background-color: var(--secondary);
+  opacity: .8;
+  transition: 0.6s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu > div >div{
+  max-width: 90vw;
+  max-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+}
+
+.menu > div >div > ul > li{
+  list-style: none;
+}
+
+.menu > div >div > ul > li > a{
+  text-decoration: none;
+  margin: .5rem;
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--primary);
+  transition: .3s;
+
+}
+
+.menu > div >div > ul > li > a:hover{
+  color: var(--primary);
+
+}
+
 nav{
   width: 100%;
   height: 100%;
@@ -140,4 +280,33 @@ a:hover:after {
 .selectable:hover {
   filter: brightness(-55%);
   cursor: pointer;
+}
+
+@media (max-width: 699px){
+  .big{
+    display: none;
+  }
+  ul{
+    display: flex;
+    flex-direction: column;
+  }
+  .login{
+    position: inherit;
+    height: 90%;
+    padding: 1rem;
+    text-decoration: none;
+    list-style: none;
+    display: flex ; align-items: center; justify-content: center; flex-flow: row wrap;
+    color: var(--secondary);
+    border-bottom: .25rem solid var(--primary);
+    transition: .5s;
+  }
+
+}
+
+@media  (min-width: 700px){
+  .menu-container{
+    display: none;
+  }
+
 }

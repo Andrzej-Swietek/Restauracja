@@ -52,8 +52,10 @@ export class LoginComponent implements OnInit {
               password: data.password,
               role: data.role,
               token: data.token,
+              banned: data.banned,
               cart: data.cart || []
-            }))
+            }));
+            sessionStorage.setItem("pending-session", JSON.stringify(data));
             this.loginSuccess = 'success';
             this.showAlert = true;
 
@@ -68,6 +70,10 @@ export class LoginComponent implements OnInit {
           this.showAlert = true;
         }
       })
+    }
+    else {
+      this.loginSuccess = 'failure';
+      this.showAlert = true;
     }
 
 

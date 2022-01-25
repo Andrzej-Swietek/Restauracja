@@ -1,12 +1,34 @@
 <nav>
   <div class="logo"> Logo</div>
-  <ul>
+  <ul class="big">
     <li><a routerLink="/" routerLinkActive="active"> Home   </a>  </li>
     <li><a routerLink="/menu" routerLinkActive="active">            Menu        </a>  </li>
     <li><a routerLink="/cart" routerLinkActive="active">            <fa-icon [icon]="faCart"></fa-icon>       </a>  </li>
     <li *ngIf="!(user$ | async)" class="login"><a routerLink="/register" routerLinkActive="active">     <fa-icon [icon]="faUser"></fa-icon>       </a>  </li>
     <li *ngIf="(user$ | async)" class="login"><a (click)="toggleShowInfo()">   <fa-icon [icon]="faUser"></fa-icon>        </a> </li>
   </ul>
+  <div class="menu-container">
+    <input type="checkbox" class="toggler" (click)="checkHandle()" [checked]=check>
+    <div class="hamburger">
+      <div>
+
+      </div>
+    </div>
+    <div class="menu">
+      <div>
+        <div>
+          <ul>
+            <li><a routerLink="/" routerLinkActive="active" (click)="checkHandle()"> Home   </a>  </li>
+            <li><a routerLink="/menu" routerLinkActive="active" (click)="checkHandle()">            Menu        </a>  </li>
+            <li><a routerLink="/cart" routerLinkActive="active" (click)="checkHandle()">            <fa-icon [icon]="faCart"></fa-icon>       </a>  </li>
+            <li *ngIf="!(user$ | async)" class="login"><a routerLink="/register" routerLinkActive="active" (click)="checkHandle()">     <fa-icon [icon]="faUser"></fa-icon>       </a>  </li>
+            <li *ngIf="(user$ | async)" class="login"><a (click)="toggleShowInfo()">   <fa-icon [icon]="faUser"></fa-icon>        </a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </nav>
 <div class="infopanel" *ngIf="showInfo">
   <div *ngIf="(user$ | async)"> {{(user$ | async)?.email}} </div>
@@ -14,8 +36,10 @@
     <h2> {{(user$ | async)?.name}} {{(user$ | async)?.lastname}}</h2>
     <h4> <ng-container *ngFor="let r of (user$ | async)?.role"><span [role]="r" appRole> {{ r }} </span></ng-container>  </h4>
   </div>
-  <div class="element selectable"> Cart <fa-icon [icon]="faCart"></fa-icon> </div>
-  <div class="element selectable"> Settings <fa-icon [icon]="faSettings"></fa-icon> </div>
-  <div class="element selectable"*ngIf="(user$ | async)?.role.includes('admin')"> Admin Panel <fa-icon [icon]="faBrain"></fa-icon> </div>
+  <div class="element selectable" (click)="goTo('/cart-history')"> Order history <fa-icon [icon]="faCart"></fa-icon> </div>
+  <div class="element selectable" *ngIf="(user$ | async)?.role.includes('admin')" (click)="goTo('/settings')"> Settings <fa-icon [icon]="faSettings"></fa-icon> </div>
+  <div class="element selectable" *ngIf="(user$ | async)?.role.includes('admin')"> Admin Panel <fa-icon [icon]="faBrain"></fa-icon> </div>
+  <div class="element selectable" *ngIf="(user$ | async)?.role.includes('admin')" (click)="goTo('/user-management')"> User Management <fa-icon [icon]="faUsers"></fa-icon> </div>
   <div class="element selectable" (click)="logout()" > Logout <fa-icon [icon]="faLogout"></fa-icon> </div>
+
 </div>

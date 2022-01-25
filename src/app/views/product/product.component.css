@@ -22,6 +22,27 @@
   align-items: center;
   box-shadow: var(--shadow4);
 }
+.return {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  font-weight: 700;
+  height: auto;
+  padding: .3rem;
+  visibility: hidden;
+  color: var(--secondary);
+  background: var(--primary);
+  border-bottom-right-radius: 45px;
+  transition: .5s;
+}
+.return:hover{
+  cursor: pointer;
+}
+.card:hover .return{
+  visibility: visible;
+  z-index: 100;
+}
 
 
 .gallery {

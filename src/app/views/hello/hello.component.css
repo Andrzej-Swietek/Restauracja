@@ -3,9 +3,6 @@
   height: 80vh;
   background: var(--bg);
   grid-column: 1 / -1;
-  /*display: grid;*/
-  /*grid-template-columns: repeat(12, 1fr);*/
-  /*grid-gap: 1rem;*/
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -65,11 +62,29 @@
 
 .desc { padding: 2rem; width: 80%; text-align: center; font-size: 1.2rem }
 .invite {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: bold;
   font-style: italic;
   font-family: var(--fontfamily);
 }
 .info > div {
   /*padding: .5rem;*/
+}
+
+@media (max-width: 800px) {
+
+  .card{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+  .info{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .img{
+    height: auto;
+  }
+
+
 }

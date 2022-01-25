@@ -1,0 +1,201 @@
+:host {
+  width: 100%;
+  height: 80vh;
+  background: var(--bg);
+  grid-column: 1/-1;
+  grid-gap: 1rem;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  overflow-y: scroll;
+}
+
+.title {
+  width: 100%;
+  grid-column: 1 / -1 ;
+  text-align: center;
+  font-weight: 900;
+  font-size: 3rem;
+  padding-block: 1rem;
+}
+
+.grid {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 1rem;
+  justify-items: center;
+}
+
+.grid > .row {
+  grid-column: 1 / -1;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  height: 10vh;
+  transition: .5s;
+}
+.grid > .row:hover {
+  box-shadow: var(--shadow3);
+}
+
+.grid > .row  > .cell {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-overflow: ellipsis;
+}
+
+.grid > .row  > .cell > button {
+  padding: 1rem 2rem;
+  background: var(--danger);
+  color: #fff;
+  border-radius: 5px;
+  border: 0;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.grid > .row  > .cell > button:hover {
+  filter: brightness(90%);
+}
+
+.grid > .row  > .header-cell {
+  background: var(--secondary);
+  color: var(--primary);
+  position: relative;
+}
+.grid > .row  > .header-cell::after{
+  content: '';
+  position: absolute;
+  width: 90%;
+  height: 50%;
+  border: var(--primary) 3px solid;
+  border-radius: 45px;
+}
+
+.unban {
+  background: var(--success) !important;
+}
+
+
+.edit {
+  visibility: hidden;
+  position: absolute;
+  color: var(--bg);
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--info);
+  border-radius: 45px;
+
+}
+.edit:hover{
+  cursor: pointer;
+}
+.role-cell:hover .edit{
+  visibility: visible;
+}
+.role-cell{
+  position: relative;
+}
+.rolesForm{
+  padding: 2rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  background: var(--primary);
+  backdrop-filter: blur(25px) opacity(.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  box-shadow: var(--shadow4);
+  z-index: 999999;
+}
+.rolesForm h1{
+  color: var(--secondary);
+  margin-bottom: 2rem;
+}
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  height: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+  z-index: 9999;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  box-shadow: var(--shadow2);
+  z-index: 999;
+  border-radius: 5px;
+}
+checkbox-container:hover .checkmark {
+  background-color: var(--secondary);
+}
+.checkbox-container input:checked ~ .checkmark {
+  background-color: var(--secondary) !important;
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.checkbox-container input:checked ~ .checkmark:after {
+  /*.checkbox-container .checkmark:after {*/
+  display: block !important;
+}
+
+.checkbox-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.rolesForm button{
+  color:var(--primary);
+  font-size: 1.5rem;
+  padding: 1.5rem 4rem;
+  background: var(--secondary);
+  border-radius: 45px;
+  border: none;
+  transition: .5s;
+  cursor: pointer;
+  margin-top: 2rem;
+}
+

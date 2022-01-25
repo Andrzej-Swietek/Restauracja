@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {faShoppingCart} from "@fortawesome/free-solid-svg-icons/faShoppingCart";
-import {faUserCircle, faCog, faBrain, faSignOutAlt} from "@fortawesome/free-solid-svg-icons/";
+import {faUserCircle, faCog, faBrain, faSignOutAlt, faUsersCog} from "@fortawesome/free-solid-svg-icons/";
 import {Select, Store} from "@ngxs/store";
 import {UserState} from "../../store/state/user.state";
 import {Observable} from "rxjs";
@@ -20,6 +20,7 @@ export class NavbarComponent implements OnInit {
 
   faCart = faShoppingCart;
   faUser = faUserCircle;
+  faUsers = faUsersCog;
   faSettings = faCog;
   faBrain = faBrain;
   faLogout = faSignOutAlt;
@@ -46,6 +47,9 @@ export class NavbarComponent implements OnInit {
 
   checkHandle():void{
     this.check = !this.check;
+  }
+  goTo(s:string):void{
+    this.router.navigate([s]);
   }
 
 }

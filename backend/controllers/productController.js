@@ -23,10 +23,8 @@ const getProduct = (req,res) => {
 
 const editProduct = (req,res) => {
   ( async()=>{
-    const payload = req.body;
-    console.log( payload )
     const connection = await DBConnection.connect("Products", DBConnection.getClient())
-    dbOpers.EditProduct(connection.collection, payload)
+    dbOpers.EditProduct(connection.collection, req.body.name, req.body.quantity)
     res.send({ "message":"ok" });
   })()
 }

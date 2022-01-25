@@ -22,29 +22,29 @@
   <div *ngIf="showCategories" class="categoriesForm">
     <h1> Choose Category </h1>
     <form>
-       <div class="checkbox-container"> Breakfast   <input type="checkbox" name="category" value="breakfast"  (input)="onCategoryChange('breakfast')">   <span class="checkmark"></span></div>
-       <div class="checkbox-container"> Dinner      <input type="checkbox" name="category" value="dinner"     (input)="onCategoryChange('dinner')">      <span class="checkmark"></span></div>
-       <div class="checkbox-container"> Lunch       <input type="checkbox" name="category" value="lunch"      (input)="onCategoryChange('lunch')">       <span class="checkmark"></span></div>
-       <div class="checkbox-container"> Salads      <input type="checkbox" name="category" value="salads"     (input)="onCategoryChange('salads')">      <span class="checkmark"></span></div>
-       <div class="checkbox-container"> Dessert     <input type="checkbox" name="category" value="dessert"    (input)="onCategoryChange('dessert')">     <span class="checkmark"></span></div>
-       <div class="checkbox-container"> Appetiser   <input type="checkbox" name="category" value="appetiser"  (input)="onCategoryChange('appetiser')">   <span class="checkmark"></span></div>
-       <div class="checkbox-container"> Vegan       <input type="checkbox" name="category" value="vegan"      (input)="onCategoryChange('vegan')">       <span class="checkmark"></span></div>
-       <div class="checkbox-container"> Meat        <input type="checkbox" name="category" value="meat"       (input)="onCategoryChange('meat')">        <span class="checkmark"></span></div>
-       <div class="checkbox-container"> Maincourse  <input type="checkbox" name="category" value="maincourse" (input)="onCategoryChange('maincourse')">  <span class="checkmark"></span></div>
+       <div class="checkbox-container"> Breakfast   <input type="checkbox" name="category" value="breakfast"  (input)="onCategoryChange('breakfast')" [checked]="filteredCategories.includes('breakfast')">   <span class="checkmark"></span></div>
+       <div class="checkbox-container"> Dinner      <input type="checkbox" name="category" value="dinner"     (input)="onCategoryChange('dinner')" [checked]="filteredCategories.includes('dinner')">      <span class="checkmark"></span></div>
+       <div class="checkbox-container"> Lunch       <input type="checkbox" name="category" value="lunch"      (input)="onCategoryChange('lunch')" [checked]="filteredCategories.includes('lunch')">       <span class="checkmark"></span></div>
+       <div class="checkbox-container"> Salads      <input type="checkbox" name="category" value="salads"     (input)="onCategoryChange('salads')" [checked]="filteredCategories.includes('salads')">      <span class="checkmark"></span></div>
+       <div class="checkbox-container"> Dessert     <input type="checkbox" name="category" value="dessert"    (input)="onCategoryChange('dessert')" [checked]="filteredCategories.includes('dessert')">     <span class="checkmark"></span></div>
+       <div class="checkbox-container"> Appetiser   <input type="checkbox" name="category" value="appetiser"  (input)="onCategoryChange('appetiser')" [checked]="filteredCategories.includes('appetiser')">   <span class="checkmark"></span></div>
+       <div class="checkbox-container"> Vegan       <input type="checkbox" name="category" value="vegan"      (input)="onCategoryChange('vegan')" [checked]="filteredCategories.includes('vegan')">       <span class="checkmark"></span></div>
+       <div class="checkbox-container"> Meat        <input type="checkbox" name="category" value="meat"       (input)="onCategoryChange('meat')" [checked]="filteredCategories.includes('meat')">        <span class="checkmark"></span></div>
+       <div class="checkbox-container"> Maincourse  <input type="checkbox" name="category" value="maincourse" (input)="onCategoryChange('maincourse')" [checked]="filteredCategories.includes('maincourse')">  <span class="checkmark"></span></div>
     </form>
     <button (click)="showCategories=false"> OK </button>
   </div>
   <div *ngIf="showCuisines" class="cuisinesForm">
     <h1> Choose Cuisine </h1>
     <form>
-      <div class="checkbox-container"> French         <input type="checkbox" name="cuisine" value="french"        (input)="onCuisineChange('french')">        <span class="checkmark"></span></div>
-      <div class="checkbox-container"> Polish         <input type="checkbox" name="cuisine" value="polish"        (input)="onCuisineChange('polish')">        <span class="checkmark"></span></div>
-      <div class="checkbox-container"> Italian        <input type="checkbox" name="cuisine" value="italian"       (input)="onCuisineChange('italian')">       <span class="checkmark"></span></div>
-      <div class="checkbox-container"> American       <input type="checkbox" name="cuisine" value="american"      (input)="onCuisineChange('american')">      <span class="checkmark"></span></div>
-      <div class="checkbox-container"> Mexican        <input type="checkbox" name="cuisine" value="mexican"       (input)="onCuisineChange('mexican')">       <span class="checkmark"></span></div>
-      <div class="checkbox-container"> Indian         <input type="checkbox" name="cuisine" value="indian"        (input)="onCuisineChange('indian')">        <span class="checkmark"></span></div>
-      <div class="checkbox-container"> Oriental       <input type="checkbox" name="cuisine" value="oriental"      (input)="onCuisineChange('oriental')">      <span class="checkmark"></span></div>
-      <div class="checkbox-container"> International  <input type="checkbox" name="cuisine" value="international" (input)="onCuisineChange('international')"> <span class="checkmark"></span></div>
+      <div class="checkbox-container"> French         <input type="checkbox" name="cuisine" value="french"        (input)="onCuisineChange('french')" [checked]="filteredCuisines.includes('french')">        <span class="checkmark"></span></div>
+      <div class="checkbox-container"> Polish         <input type="checkbox" name="cuisine" value="polish"        (input)="onCuisineChange('polish')" [checked]="filteredCuisines.includes('polish')">        <span class="checkmark"></span></div>
+      <div class="checkbox-container"> Italian        <input type="checkbox" name="cuisine" value="italian"       (input)="onCuisineChange('italian')" [checked]="filteredCuisines.includes('italian')">       <span class="checkmark"></span></div>
+      <div class="checkbox-container"> American       <input type="checkbox" name="cuisine" value="american"      (input)="onCuisineChange('american')" [checked]="filteredCuisines.includes('american')">      <span class="checkmark"></span></div>
+      <div class="checkbox-container"> Mexican        <input type="checkbox" name="cuisine" value="mexican"       (input)="onCuisineChange('mexican')" [checked]="filteredCuisines.includes('mexican')">       <span class="checkmark"></span></div>
+      <div class="checkbox-container"> Indian         <input type="checkbox" name="cuisine" value="indian"        (input)="onCuisineChange('indian')" [checked]="filteredCuisines.includes('indian')">        <span class="checkmark"></span></div>
+      <div class="checkbox-container"> Oriental       <input type="checkbox" name="cuisine" value="oriental"      (input)="onCuisineChange('oriental')" [checked]="filteredCuisines.includes('oriental')">      <span class="checkmark"></span></div>
+      <div class="checkbox-container"> International  <input type="checkbox" name="cuisine" value="international" (input)="onCuisineChange('international')" [checked]="filteredCuisines.includes('international')"> <span class="checkmark"></span></div>
     </form>
     <button (click)="showCuisines=false"> OK </button>
   </div>

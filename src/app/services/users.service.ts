@@ -6,7 +6,7 @@ import {UserModel} from "../store/models/user.model";
 import {Observable} from "rxjs";
 import {Select, Selector, Store} from "@ngxs/store";
 import {UserState} from "../store/state/user.state";
-import {HistoryCartItem} from "../shared/types";
+import {HistoryCartItem, UserRole} from "../shared/types";
 
 
 export type GetAllUsersResponse = { message: string, data: UserModel[] };
@@ -38,6 +38,11 @@ export class UsersService {
   }
 
 
-  banUser(id:number){ }
+  banUser(user: UserModel){
+    return this.http.put(this.url + "/user/ban", {email: user.email, value: !user.banned})
+  }
+  changeRole(obj:{email:string, roles:UserRole[]}){
+    return this.http.put(this.url + "/user/changeRole", {email:obj.email, value:obj.roles})
+  }
   deleteUser(id:number){ }
 }

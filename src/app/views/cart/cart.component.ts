@@ -39,18 +39,18 @@ export class CartComponent implements OnInit {
 
 
   pay():void {
-    // let productsIDs : number[] = [];
-    // this.cart$.subscribe( (data:CartModel[])=> {
-    //   data.forEach((item:CartModel)=>{
-    //     console.log(item.item)
-    //     this.productService.editProduct(item.item).subscribe( (d) => console.log(data))
-    //   })
-    //   productsIDs = data.map( (v:CartModel)=> v.item.id)
-    // })
-    // this.userService.addToCartHistory({date:Date().toString(), products:productsIDs}).subscribe((data)=>{
-    //   console.log(data);
-    // })
-    // alert('paid');
+    let productsIDs : number[] = [];
+    this.cart$.subscribe( (data:CartModel[])=> {
+      data.forEach((item:CartModel)=>{
+        console.log({name:item.item.name,quantity:item.item.quantity})
+        this.productService.editProduct({name:item.item.name,quantity:item.item.quantity}).subscribe( (d) => console.log(data))
+      })
+      productsIDs = data.map( (v:CartModel)=> v.item.id)
+    })
+    this.userService.addToCartHistory({date:Date().toString(), products:productsIDs}).subscribe((data)=>{
+      console.log(data);
+    })
+    alert('paid');
 
   }
 }

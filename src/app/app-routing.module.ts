@@ -9,6 +9,7 @@ import {RegisterComponent} from "./views/register/register.component";
 import {LoginComponent} from "./views/login/login.component";
 import {UserGuardGuard} from "./shared/user-guard.guard";
 import {UsersMangementComponent} from "./views/users-mangement/users-mangement.component";
+import {CartHistoryComponent} from "./views/cart-history/cart-history.component";
 
 const routes: Routes = [
   { path: "", component: HelloComponent },
@@ -17,9 +18,9 @@ const routes: Routes = [
   { path: "cart", component: CartComponent,canActivate: [UserGuardGuard] },
   { path: "register", component: RegisterComponent },
   { path: "login", component: LoginComponent },
-  { path: "user-management", component: UsersMangementComponent },
+  { path: "user-management", component: UsersMangementComponent, canActivate: [UserGuardGuard] },
+  { path: "cart-history", component: CartHistoryComponent},
   { path: "**", component: NotFoundComponent }
-
 ];
 
 @NgModule({

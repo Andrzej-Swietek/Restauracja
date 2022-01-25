@@ -30,6 +30,18 @@ module.exports = {
       { $set: { cart: cart }  },
     )
   },
+  BanUser: function(collection, email, value){
+    collection.updateOne(
+      { email: email},
+      { $set: { banned: value }  },
+    )
+  },
+  ChangeRole: function (collection,email,value){
+    collection.updateOne(
+      {email:email},
+      { $set: {role:value} },
+    )
+  },
 
   //select - zwraca tablicę pasujących dokumentów, z ograniczeniem do {login:"test"}
 
@@ -70,10 +82,10 @@ module.exports = {
     })
   },
 
-  EditProduct: async function (collection, payload) {
+  EditProduct: function (collection, name, quantity) {
     collection.updateOne(
-      { id: payload.id },
-      { $set: payload  },
+      { name: name },
+      { $set: {quantity:quantity}  },
     )
   }
 

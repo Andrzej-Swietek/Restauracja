@@ -3,21 +3,33 @@
 
   <div class="row">
     <div class="cell header-cell"> LP         </div>
-    <div class="cell header-cell"> Name       </div>
     <div class="cell header-cell"> Lastname   </div>
     <div class="cell header-cell"> Email      </div>
+    <div class="cell header-cell"> Role      </div>
     <div class="cell header-cell"> Status      </div>
     <div class="cell header-cell"> Ban / Unban      </div>
   </div>
 
   <div class="row" *ngFor="let user of users; let i = index">
     <div class="cell">    <strong>{{ i }}</strong>    </div>
-    <div class="cell"> {{ user.name }}                </div>
     <div class="cell"> {{ user.lastname }}            </div>
     <div class="cell"> {{ user.email }}               </div>
+    <div class="cell role-cell"> <div class="edit" (click)="handleEdit(user)"> <fa-icon [icon]="faEdit"></fa-icon></div> {{ user.role }}                </div>
     <div class="cell" [ngStyle]="{'color': user.banned? 'red':'var(--secondary)'}"> {{ user.banned }}      </div>
-    <div class="cell" *ngIf="!user.banned" (click)="toggleBan()"> <button> Ban </button>      </div>
-    <div class="cell" *ngIf="user.banned" (click)="toggleBan()"> <button> Unban </button>    </div>
+    <div class="cell" *ngIf="!user.banned" (click)="toggleBan(user)"> <button> Ban </button>      </div>
+    <div class="cell" *ngIf="user.banned" (click)="toggleBan(user)"> <button class="unban"> Unban </button>    </div>
+    <div class="rolesForm" *ngIf="showRoles && user.email==popupData.email">
+      <h1>Change role for {{user.name}} {{user.lastname}}</h1>
+      <form>
+        <div class="checkbox-container"> admin <input type="checkbox" name="role" value="admin" [checked]="user.role.includes('admin')" (input)="onRoleChange('admin')"><span class="checkmark"></span></div>
+        <div class="checkbox-container"> manager <input type="checkbox" name="role" value="manager" [checked]="user.role.includes('manager')" (input)="onRoleChange('manager')"><span class="checkmark"></span></div>
+        <div class="checkbox-container"> client <input type="checkbox" name="role" value="client" [checked]="user.role.includes('client')" (input)="onRoleChange('client')"><span class="checkmark"></span></div>
+      </form>
+      <button class="set" (click)="setRoles()"> Set Roles </button>
+    </div>
   </div>
+
+
+
 
 </div>

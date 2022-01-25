@@ -28,8 +28,8 @@ export class ProductServiceService {
         })
       })
   }
-  editProduct(object:ProductModel){
-    return this.http.put<ProductModel>(this.url + "/product/edit", object, this.httpOptions)
+  editProduct(object:{name:string, quantity:number}){
+    return this.http.put(this.url + "/product/edit", {object})
   }
   deleteProduct(id:number){
     const delUrl = `${this.url}/delete/${id}`;

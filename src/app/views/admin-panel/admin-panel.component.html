@@ -1,1 +1,21 @@
-<p>admin-panel works!</p>
+<form [formGroup]="addProductForm">
+  <h2> General Info </h2>
+  <label for="name">       Name:     <input type="text" formControlName="name" id="name" />    </label>
+  <label for="price">      Price:    <input type="text" formControlName="price" id="price" />  </label>
+  <label for="quantity">   Quantity: <input type="text" formControlName="quantity" id="quantity" />  </label>
+
+  <h2 (click)="toggleGallery()"> Gallery </h2>
+  <label class="clickable" *ngIf="!showGallery" (click)="toggleGallery()"> ... </label>
+  <label *ngIf="showGallery" for="photo1">    Photo #1 Url: <input type="text" formControlName="photo1" id="photo1" />  </label>
+  <label *ngIf="showGallery" for="photo2">    Photo #2 Url: <input type="text" formControlName="photo2" id="photo2" />  </label>
+  <label *ngIf="showGallery" for="photo3">    Photo #3 Url: <input type="text" formControlName="photo3" id="photo3" />  </label>
+
+  <h2 (click)="toggleDescription()"> Description </h2>
+  <label class="clickable" *ngIf="!showDescription" (click)="toggleDescription()"> ... </label>
+  <textarea  *ngIf="showDescription" placeholder="Description..." formControlName="description"></textarea>
+  <div class="btns">
+    <app-round-btn [text]="'Save'" [onClick]="save"></app-round-btn>
+    <app-round-btn [text]="'Choose Category'" [onClick]="toggleCategory"> </app-round-btn>
+    <app-round-btn [text]="'Choose Cuisines'" [onClick]="toggleCuisines"> </app-round-btn>
+  </div>
+</form>

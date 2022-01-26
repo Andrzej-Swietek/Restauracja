@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-admin-panel',
@@ -7,9 +8,58 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPanelComponent implements OnInit {
 
-  constructor() { }
+  addProductForm: FormGroup = new FormGroup({});
+
+  constructor(private fb: FormBuilder){ }
+  showGallery: boolean = false;
+  showDescription: boolean = false;
+  showCategories: boolean = false;
+  showCuisines: boolean = false;
 
   ngOnInit(): void {
+    this.addProductForm = this.fb.group({
+      name: ['', [
+        Validators.required,
+        Validators.maxLength(24),
+        Validators.pattern('[a-zA-Z0-9_._ ]')
+      ]],
+      price: ['0.00', [
+        Validators.required,
+        Validators.maxLength(24),
+        Validators.pattern('[0-9_.]')
+      ]],
+      quantity: ['0.00', [
+        Validators.required,
+        Validators.maxLength(24),
+        Validators.pattern('[0-9_.]')
+      ]],
+      photo1: ['', [
+        Validators.required,
+      ]],
+      photo2: ['', [
+        Validators.required,
+      ]],
+      photo3: ['', [
+        Validators.required,
+      ]],
+      description: ['', [
+        Validators.required,
+      ]],
+    })
   }
 
+  save = ():void => {
+    console.log('Product Saved');
+  }
+
+  toggleCategory = ():void => {
+    this.showCategories=!this.showCategories
+  }
+
+  toggleCuisines = ():void => {
+    this.showCuisines=!this.showCuisines
+  }
+
+  toggleGallery(){ this.showGallery = !this.showGallery; this.showDescription = false; }
+  toggleDescription(){ this.showDescription = !this.showDescription; this.showGallery = false; }
 }

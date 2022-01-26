@@ -38,7 +38,7 @@
   </div>
   <div class="element selectable" (click)="goTo('/cart-history')"> Order history <fa-icon [icon]="faCart"></fa-icon> </div>
   <div class="element selectable" *ngIf="(user$ | async)?.role.includes('admin')" (click)="goTo('/settings')"> Settings <fa-icon [icon]="faSettings"></fa-icon> </div>
-  <div class="element selectable" *ngIf="(user$ | async)?.role.includes('admin')"> Admin Panel <fa-icon [icon]="faBrain"></fa-icon> </div>
+  <div class="element selectable" *ngIf="(user$ | async)?.role.includes('admin')" (click)="goTo('/admin-panel')"> Admin Panel <fa-icon [icon]="faBrain"></fa-icon> </div>
   <div class="element selectable" *ngIf="(user$ | async)?.role.includes('admin')" (click)="goTo('/user-management')"> User Management <fa-icon [icon]="faUsers"></fa-icon> </div>
   <div class="element selectable" (click)="logout()" > Logout <fa-icon [icon]="faLogout"></fa-icon> </div>
 

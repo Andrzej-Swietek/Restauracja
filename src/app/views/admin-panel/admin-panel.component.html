@@ -1,8 +1,10 @@
 <form [formGroup]="addProductForm">
-  <h2> General Info </h2>
-  <label for="name">       Name:     <input type="text" formControlName="name" id="name" />    </label>
-  <label for="price">      Price:    <input type="text" formControlName="price" id="price" />  </label>
-  <label for="quantity">   Quantity: <input type="text" formControlName="quantity" id="quantity" />  </label>
+  <h2 (click)="toggleGeneral()"> General Info </h2>
+  <label class="clickable" *ngIf="!showGeneral" (click)="toggleGeneral()"> ... </label>
+  <label *ngIf="showGeneral" for="name">       Name:     <input type="text" formControlName="name" id="name" />    </label>
+  <label *ngIf="showGeneral" for="price">      Price:    <input type="text" formControlName="price" id="price" />  </label>
+  <label *ngIf="showGeneral" for="quantity">   Quantity: <input type="text" formControlName="quantity" id="quantity" />  </label>
+  <label *ngIf="showGeneral" for="ingredients"> Ingredients: <input type="text" formControlName="ingredients" id="ingredients" placeholder="chocolate,milk,eggs" />  </label>
 
   <h2 (click)="toggleGallery()"> Gallery </h2>
   <label class="clickable" *ngIf="!showGallery" (click)="toggleGallery()"> ... </label>
@@ -14,8 +16,14 @@
   <label class="clickable" *ngIf="!showDescription" (click)="toggleDescription()"> ... </label>
   <textarea  *ngIf="showDescription" placeholder="Description..." formControlName="description"></textarea>
   <div class="btns">
-    <app-round-btn [text]="'Save'" [onClick]="save"></app-round-btn>
+    <app-round-btn *ngIf="!addProductForm.invalid" [text]="'Save'" [onClick]="save"></app-round-btn>
     <app-round-btn [text]="'Choose Category'" [onClick]="toggleCategory"> </app-round-btn>
     <app-round-btn [text]="'Choose Cuisines'" [onClick]="toggleCuisines"> </app-round-btn>
   </div>
+
+  <span *ngIf="addProductForm.get('name').touched && addProductForm.get('name').invalid" appFailure> Invalid Name </span>
+  <span *ngIf="addProductForm.get('price').touched && addProductForm.get('price').invalid" appFailure> Invalid Price </span>
+  <span *ngIf="addProductForm.get('quantity').touched && addProductForm.get('quantity').invalid" appFailure> Invalid Quantity </span>
+  <span *ngIf="addProductForm.get('ingredients').touched && addProductForm.get('ingredients').invalid" appFailure> Invalid Ingredients </span>
+
 </form>

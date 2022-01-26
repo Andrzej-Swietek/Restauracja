@@ -40,7 +40,20 @@ const deleteProduct = (req,res) => {
   })()
 }
 
+const addProduct = (req,res) => {
+  (async () => {
+    const product = req.body;
+    product["comments"] = [];
+    product["grade"] = 5;
+    product["numberOfGrades"] = 0;
+    const connection = await DBConnection.connect("Products", DBConnection.getClient());
+    dbOpers.InsertToDatabase(connection.collection, product);
+    res.send({ "msg": "success" })
+  })()
+}
+
 module.exports = {
+  addProduct,
   getAllProducts,
   editProduct,
   deleteProduct,

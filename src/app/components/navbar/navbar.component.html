@@ -30,7 +30,7 @@
 
   </div>
 </nav>
-<div class="infopanel" *ngIf="showInfo">
+<div @fadeIn @fadeOut class="infopanel" *ngIf="showInfo">
   <div *ngIf="(user$ | async)"> {{(user$ | async)?.email}} </div>
   <div class="element info">
     <h2> {{(user$ | async)?.name}} {{(user$ | async)?.lastname}}</h2>

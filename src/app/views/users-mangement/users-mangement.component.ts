@@ -3,11 +3,13 @@ import {UsersService} from "../../services/users.service";
 import {UserModel} from "../../store/models/user.model";
 import {faEdit} from "@fortawesome/free-solid-svg-icons";
 import {UserRole} from "../../shared/types";
+import {fadeIn} from "../../shared/animations/fade.animation";
 
 @Component({
   selector: 'app-users-mangement',
   templateUrl: './users-mangement.component.html',
-  styleUrls: ['./users-mangement.component.css']
+  styleUrls: ['./users-mangement.component.css'],
+  animations: [fadeIn],
 })
 export class UsersMangementComponent implements OnInit {
 

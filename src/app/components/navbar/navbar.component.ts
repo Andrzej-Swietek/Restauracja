@@ -9,11 +9,13 @@ import {Observable} from "rxjs";
 import {UserModel} from "../../store/models/user.model";
 import {LogoutUser} from "../../store/actions/user.action";
 import {Router} from "@angular/router";
+import {fadeIn, fadeOut} from "../../shared/animations/fade.animation";
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
+  animations: [fadeIn, fadeOut],
 })
 export class NavbarComponent implements OnInit {
 

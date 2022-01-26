@@ -8,11 +8,13 @@ import {Select, Store} from "@ngxs/store";
 import {ProductServiceService} from "../../services/product-service.service";
 import {CartState} from "../../store/state/cart.state";
 import {Observable} from "rxjs";
+import {fadeIn} from "../../shared/animations/fade.animation";
 
 @Component({
   selector: 'app-cart-item',
   templateUrl: './cart-item.component.html',
-  styleUrls: ['./cart-item.component.css']
+  styleUrls: ['./cart-item.component.css'],
+  animations: [fadeIn],
 })
 export class CartItemComponent implements OnInit {
 

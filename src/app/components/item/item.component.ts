@@ -16,10 +16,12 @@ import {CartModel} from "../../store/models/cart.model";
 import {UserState} from "../../store/state/user.state";
 import {UserModel} from "../../store/models/user.model";
 
+import {fadeIn} from '../../shared/animations/fade.animation';
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
-  styleUrls: ['./item.component.css']
+  styleUrls: ['./item.component.css'],
+  animations: [fadeIn],
 })
 
 export class ItemComponent implements OnInit {

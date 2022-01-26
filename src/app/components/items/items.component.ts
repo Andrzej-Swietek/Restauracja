@@ -8,7 +8,7 @@ import {CategoryType, CuisineType} from "../../shared/types";
 @Component({
   selector: 'app-items',
   templateUrl: './items.component.html',
-  styleUrls: ['./items.component.css']
+  styleUrls: ['./items.component.css'],
 })
 export class ItemsComponent implements OnInit {
 

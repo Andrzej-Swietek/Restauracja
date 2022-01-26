@@ -3,7 +3,7 @@
   <h1>  No Items in the cart </h1>
 </div>
 <div class="grid" *ngIf="(cart$ | async)?.length > 0">
-  <app-cart-item *ngFor="let item of cart$ | async" [item]="item"></app-cart-item>
+  <app-cart-item @fadeIn *ngFor="let item of cart$ | async" [item]="item"></app-cart-item>
 <!--  <div *ngFor="let i of [].constructor(5).fill('xx')" [id]="i"> {{i}}</div>-->
 </div>
 <aside class="summary">

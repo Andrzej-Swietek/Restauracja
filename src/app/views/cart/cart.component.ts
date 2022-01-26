@@ -5,11 +5,13 @@ import {Observable} from "rxjs";
 import {CartModel} from "../../store/models/cart.model";
 import {UsersService} from "../../services/users.service";
 import {ProductServiceService} from "../../services/product-service.service";
+import {fadeIn} from "../../shared/animations/fade.animation";
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.css'],
+  animations: [fadeIn],
 })
 export class CartComponent implements OnInit {
 

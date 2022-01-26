@@ -42,6 +42,7 @@ import { SharedModule } from "./shared/shared.module";
 import {AdminPanelModule} from "./modules/admin-panel/admin-panel.module";
 import {HomeModule} from "./modules/home/home.module";
 import {HelloModule} from "./modules/hello/hello.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import {HelloModule} from "./modules/hello/hello.module";
     NgxsModule.forRoot([ProductState, CartState, UserState], {}),
     NgxsLoggerPluginModule.forRoot(),
     BrowserModule,
+    BrowserAnimationsModule,
     SharedModule,
     HelloModule,
     AdminPanelModule,

@@ -1,4 +1,4 @@
-<div class="item-container" (click)="goTo(item.id)">
+<div @fadeIn class="item-container" (click)="goTo(item.id)">
   <div *ngIf="(user$ | async)?.role.includes('admin')" class="del" (click)="deleteHandle()"><fa-icon [icon]="faTrash"></fa-icon></div>
   <img [src]="item.gallery[0]" alt="image">
   <div class="name"> <h2>{{ item.name | uppercase }}</h2> <h3>{{item.cuisine | uppercase}}</h3> </div>

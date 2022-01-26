@@ -10,7 +10,7 @@
     <div class="cell header-cell"> Ban / Unban      </div>
   </div>
 
-  <div class="row" *ngFor="let user of users; let i = index">
+  <div @fadeIn class="row" *ngFor="let user of users; let i = index">
     <div class="cell">    <strong>{{ i }}</strong>    </div>
     <div class="cell"> {{ user.lastname }}            </div>
     <div class="cell"> {{ user.email }}               </div>

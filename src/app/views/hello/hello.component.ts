@@ -13,6 +13,7 @@ export class HelloComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log('hello')
   }
 
 }

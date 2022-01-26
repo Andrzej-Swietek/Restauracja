@@ -44,6 +44,8 @@ footer{
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--primary);
+  text-decoration: none;
   flex-flow: row wrap;
   border-radius: 50%;
   outline: var(--primary) 2px solid;

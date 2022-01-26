@@ -12,7 +12,11 @@ import {SettingsComponent} from "./views/settings/settings.component";
 
 
 const routes: Routes = [
-  { path: "", component: HelloComponent },
+  {
+    path: "",
+    // component: HelloComponent
+    loadChildren: ()=> import('./modules/hello/hello.module').then(m=>m.HelloModule)
+  },
   {
     path: "menu",
     // component: HomeComponent

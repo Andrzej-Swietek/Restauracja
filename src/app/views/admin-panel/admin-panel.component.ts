@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {ProductServiceService} from "../../services/product-service.service";
+import {Store} from "@ngxs/store";
 
 @Component({
   selector: 'app-admin-panel',
@@ -10,7 +12,7 @@ export class AdminPanelComponent implements OnInit {
 
   addProductForm: FormGroup = new FormGroup({});
 
-  constructor(private fb: FormBuilder){ }
+  constructor(private fb: FormBuilder, private productService: ProductServiceService, private store: Store){ }
 
   showGeneral: boolean = true;
   showGallery: boolean = false;
@@ -54,7 +56,21 @@ export class AdminPanelComponent implements OnInit {
   }
 
   save = ():void => {
-    console.log('Product Saved');
+    alert( 'Product Saved' );
+    let maxId: number;
+    this.store.select( state => state.products.products).subscribe( data => {
+      data.forEach( item => { if ( maxId < item.id )  maxId = item.id; })
+    });
+
+    this.productService.addProduct({
+      id: maxId+1,
+      name: this.addProductForm.get("name").value,
+      price: parseInt( this.addProductForm.get("price").value ),
+      quantity: parseInt( this.addProductForm.get("quantity").value ),
+      gallery: [ this.addProductForm.get("photo1").value, this.addProductForm.get("photo2").value, this.addProductForm.get("photo3").value ],
+      description: this.addProductForm.get("description").value,
+      ingredients: this.addProductForm.get("ingredients").value.split(',')
+    }).subscribe( d=> console.log(d) );
   }
 
   toggleCategory = ():void => {
